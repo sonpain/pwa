@@ -1,6 +1,6 @@
 // @ch4. 서비스 워커 등록
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../service-worker.js').then((registration) => {
+  navigator.serviceWorker.register('/pwa/service-worker.js').then((registration) => {
     // 업데이트 발견
     registration.addEventListener('updatefound', () => {
       // 설치 중인 새로운 서비스 워커
