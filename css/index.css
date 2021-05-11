@@ -485,7 +485,12 @@ span.favorite {
   .offline-alert.hidden {
     opacity: 0;
     transform: translateY(100%); }
-
+    .add-button {
+      position: absolute;
+      top: 111px;
+      left: 1px;
+      display: none;;
+    }
 button {
   cursor: pointer;
   outline: none;
