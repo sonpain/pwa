@@ -1,5 +1,4 @@
 {
-    "name": "PWA | Paper",
     "short_name": "Paper",
     "description": "Progressive Web App",
     "icons": [
@@ -7,17 +6,11 @@
         "src": "/pwa/icons/icon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
-      },
-      {
-        "src": "/pwa/icons/icon-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
       }
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "orientation": "any",
-    "display": "standalone",
+    "display": "fullscreen",
     "start_url": "/pwa/index.html"
   }
   
