@@ -3,27 +3,27 @@ const CACHE_NAME = 'paper-cache_' + VERSION;
 const IMAGE_CACHE_NAME = 'paper-image_' + VERSION;
 
 const IMMUTABLE_APPSHELL = [
-  '/favicon.ico',
-  '/favicon-16x16.png',
-  '/favicon-32x32.png',
-  '/manifest.json',
-  '/images/no_image.png',
-  '/images/add_photo.svg',
-  '/images/clear.svg',
-  '/images/delete.svg',
-  '/images/favorite_active.svg',
-  '/images/favorite.svg',
-  '/images/menu.svg',
-  '/images/notification.svg',
-  '/images/notification_disabled.svg',
-  '/images/notification_enabled.svg'
+  './favicon.ico',
+  './favicon-16x16.png',
+  './favicon-32x32.png',
+  './manifest.json',
+  './images/no_image.png',
+  './images/add_photo.svg',
+  './images/clear.svg',
+  './images/delete.svg',
+  './images/favorite_active.svg',
+  './images/favorite.svg',
+  './images/menu.svg',
+  './images/notification.svg',
+  './images/notification_disabled.svg',
+  './images/notification_enabled.svg'
 ];
 
 const MUTABLE_APPSHELL = [
-  '/',
-  '/js/common.js',
-  '/js/index.js',
-  '/css/index.css'
+  './',
+  './js/common.js',
+  './js/index.js',
+  './css/index.css'
 ];
 
 const CACHE_LIST = IMMUTABLE_APPSHELL.concat(MUTABLE_APPSHELL);
