@@ -1,40 +1,40 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'NanumSquareRound';
-  src: url("/fonts/NanumSquareRoundR.eot");
-  src: url("/fonts/NanumSquareRoundR.eot#iefix") format("embedded-opentype"), url("/fonts/NanumSquareRoundR.woff") format("woff"), url("/fonts/NanumSquareRoundR.ttf") format("truetype");
-  src: local(¡Ø), url("/fonts/NanumSquareRoundR.woff") format("woff");
+  src: url("/pwa/fonts/NanumSquareRoundR.eot");
+  src: url("/pwa/fonts/NanumSquareRoundR.eot#iefix") format("embedded-opentype"), url("/pwa/fonts/NanumSquareRoundR.woff") format("woff"), url("/pwa/fonts/NanumSquareRoundR.ttf") format("truetype");
+  src: local(¡Ø), url("/pwa/fonts/NanumSquareRoundR.woff") format("woff");
   font-display: fallback; }
 
 @font-face {
   font-family: 'NanumSquareRound';
-  src: url("/fonts/NanumSquareRoundL.eot");
-  src: url("/fonts/NanumSquareRoundL.eot#iefix") format("embedded-opentype"), url("/fonts/NanumSquareRoundL.woff") format("woff"), url("/fonts/NanumSquareRoundL.ttf") format("truetype");
-  src: local(¡Ø), url("/fonts/NanumSquareRoundL.woff") format("woff");
+  src: url("/pwa/fonts/NanumSquareRoundL.eot");
+  src: url("/pwa/fonts/NanumSquareRoundL.eot#iefix") format("embedded-opentype"), url("/pwa/fonts/NanumSquareRoundL.woff") format("woff"), url("/pwa/fonts/NanumSquareRoundL.ttf") format("truetype");
+  src: local(¡Ø), url("/pwa/fonts/NanumSquareRoundL.woff") format("woff");
   font-weight: 300;
   font-display: fallback; }
 
 @font-face {
   font-family: 'NanumSquareRound';
-  src: url("/fonts/NanumSquareRoundR.eot");
-  src: url("/fonts/NanumSquareRoundR.eot#iefix") format("embedded-opentype"), url("/fonts/NanumSquareRoundR.woff") format("woff"), url("/fonts/NanumSquareRoundR.ttf") format("truetype");
-  src: local(¡Ø), url("/fonts/NanumSquareRoundR.woff") format("woff");
+  src: url("/pwa/fonts/NanumSquareRoundR.eot");
+  src: url("/pwa/fonts/NanumSquareRoundR.eot#iefix") format("embedded-opentype"), url("/pwa/fonts/NanumSquareRoundR.woff") format("woff"), url("/pwa/fonts/NanumSquareRoundR.ttf") format("truetype");
+  src: local(¡Ø), url("/pwa/fonts/NanumSquareRoundR.woff") format("woff");
   font-weight: 400;
   font-display: fallback; }
 
 @font-face {
   font-family: 'NanumSquareRound';
-  src: url("/fonts/NanumSquareRoundB.eot");
-  src: url("/fonts/NanumSquareRoundB.eot#iefix") format("embedded-opentype"), url("/fonts/NanumSquareRoundB.woff") format("woff"), url("/fonts/NanumSquareRoundB.ttf") format("truetype");
-  src: local(¡Ø), url("/fonts/NanumSquareRoundB.woff") format("woff");
+  src: url("/pwa/fonts/NanumSquareRoundB.eot");
+  src: url("/pwa/fonts/NanumSquareRoundB.eot#iefix") format("embedded-opentype"), url("/pwa/fonts/NanumSquareRoundB.woff") format("woff"), url("/pwa/fonts/NanumSquareRoundB.ttf") format("truetype");
+  src: local(¡Ø), url("/pwa/fonts/NanumSquareRoundB.woff") format("woff");
   font-weight: 700;
   font-display: fallback; }
 
 @font-face {
   font-family: 'NanumSquareRound';
-  src: url("/fonts/NanumSquareRoundEB.eot");
-  src: url("/fonts/NanumSquareRoundEB.eot#iefix") format("embedded-opentype"), url("/fonts/NanumSquareRoundEB.woff") format("woff"), url("/fonts/NanumSquareRoundEB.ttf") format("truetype");
-  src: local(¡Ø), url("/fonts/NanumSquareRoundEB.woff") format("woff");
+  src: url("/pwa/fonts/NanumSquareRoundEB.eot");
+  src: url("/pwa/fonts/NanumSquareRoundEB.eot#iefix") format("embedded-opentype"), url("/pwa/fonts/NanumSquareRoundEB.woff") format("woff"), url("/pwa/fonts/NanumSquareRoundEB.ttf") format("truetype");
+  src: local(¡Ø), url("/pwa/fonts/NanumSquareRoundEB.woff") format("woff");
   font-weight: 800;
   font-display: fallback; }
 
@@ -304,7 +304,7 @@ article {
         transition: background-color 0.1s; }
         article header .menu-list__item.delete {
           color: tomato;
-          background: url("/images/delete.svg") no-repeat 24px 24px;
+          background: url("/pwa/images/delete.svg") no-repeat 24px 24px;
           background-position: 6px; }
         .theme--light article header .menu-list__item:hover, .theme--light article header .menu-list__item:active {
           background-color: #eee; }
@@ -406,7 +406,7 @@ span.icon {
   height: 24px; }
 
 span.menu {
-  background-image: url("/images/menu.svg");
+  background-image: url("/pwa/images/menu.svg");
   border-radius: 50%;
   -webkit-transition: background-color 0.1s;
   transition: background-color 0.1s; }
@@ -416,7 +416,7 @@ span.menu {
     background-color: #555; }
 
 span.clear {
-  background-image: url("/images/clear.svg");
+  background-image: url("/pwa/images/clear.svg");
   border-radius: 50%;
   -webkit-transition: background-color 0.1s;
   transition: background-color 0.1s; }
@@ -427,7 +427,7 @@ span.clear {
 
 span.favorite {
   position: relative;
-  background-image: url("/images/favorite.svg"); }
+  background-image: url("/pwa/images/favorite.svg"); }
   span.favorite::before {
     cursor: pointer;
     display: inline-block;
@@ -437,7 +437,7 @@ span.favorite {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/images/favorite_active.svg");
+    background-image: url("/pwa/images/favorite_active.svg");
     opacity: 0;
     -webkit-transition: opacity 0.1s;
     transition: opacity 0.1s; }
@@ -526,7 +526,7 @@ button {
     border-radius: 5px;
     color: white;
     font-size: 1rem;
-    background: url("/images/notification.svg") no-repeat 24px 24px;
+    background: url("/pwa/images/notification.svg") no-repeat 24px 24px;
     background-position: 10px;
     background-color: dodgerblue;
     -webkit-transition: .3s;
@@ -536,12 +536,12 @@ button {
     button.notification:active {
       background-color: #0077ea; }
     button.notification.granted {
-      background: url("/images/notification_enabled.svg") no-repeat 24px 24px;
+      background: url("/pwa/images/notification_enabled.svg") no-repeat 24px 24px;
       background-position: 10px;
       background-color: tomato; }
     button.notification.denied {
       cursor: not-allowed;
-      background: url("/images/notification_disabled.svg") no-repeat 24px 24px;
+      background: url("/pwa/images/notification_disabled.svg") no-repeat 24px 24px;
       background-position: 10px;
       background-color: dodgerblue;
       opacity: .5; }
@@ -672,7 +672,7 @@ div.loading {
         font-size: 1rem;
         padding: 1rem;
         padding-left: 3rem;
-        background: url("/images/add_photo.svg") no-repeat 24px 24px;
+        background: url("/pwa/images/add_photo.svg") no-repeat 24px 24px;
         background-position: 1rem .7rem;
         -webkit-transition: background-color 0.1s;
         transition: background-color 0.1s; }
