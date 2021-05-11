@@ -1,6 +1,6 @@
 // @ch4. 서비스 워커 등록
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/pwa/service-worker.js').then((registration) => {
+  navigator.serviceWorker.register('../service-worker.js').then((registration) => {
     // 업데이트 발견
     registration.addEventListener('updatefound', () => {
       // 설치 중인 새로운 서비스 워커
@@ -11,10 +11,11 @@ if ('serviceWorker' in navigator) {
         const state = event.target.state;
         console.log('PAPER: ' + state);
         if (state === 'installed') {
-          concole.log('앱을 재시작하면 업데이트가 적용됩니다!');
+          util.message('앱을 재시작하면 업데이트가 적용됩니다!');
         }
       });
     });
   });
 }
+
 
