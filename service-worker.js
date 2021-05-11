@@ -33,9 +33,7 @@ self.addEventListener('install', (event) => {
   console.log('Service Worker - install');
 
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(CACHE_LIST);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(CACHE_LIST)),
   );
 });
 
