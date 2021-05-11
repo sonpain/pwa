@@ -3,27 +3,27 @@ const CACHE_NAME = 'paper-cache_' + VERSION;
 const IMAGE_CACHE_NAME = 'paper-image_' + VERSION;
 
 const IMMUTABLE_APPSHELL = [
-  './favicon.ico',
-  './favicon-16x16.png',
-  './favicon-32x32.png',
-  './manifest.json',
-  './images/no_image.png',
-  './images/add_photo.svg',
-  './images/clear.svg',
-  './images/delete.svg',
-  './images/favorite_active.svg',
-  './images/favorite.svg',
-  './images/menu.svg',
-  './images/notification.svg',
-  './images/notification_disabled.svg',
-  './images/notification_enabled.svg'
+  '/pwa/favicon.ico',
+  '/pwa/favicon-16x16.png',
+  '/pwa/favicon-32x32.png',
+  '/pwa/manifest.json',
+  '/pwa/images/no_image.png',
+  '/pwa/images/add_photo.svg',
+  '/pwa/images/clear.svg',
+  '/pwa/images/delete.svg',
+  '/pwa/images/favorite_active.svg',
+  '/pwa/images/favorite.svg',
+  '/pwa/images/menu.svg',
+  '/pwa/images/notification.svg',
+  '/pwa/images/notification_disabled.svg',
+  '/pwa/images/notification_enabled.svg'
 ];
 
 const MUTABLE_APPSHELL = [
-  './',
-  './js/common.js',
-  './js/index.js',
-  './css/index.css'
+  '/pwa/',
+  '/pwa/js/common.js',
+  '/pwa/js/index.js',
+  '/pwa/css/index.css'
 ];
 
 const CACHE_LIST = IMMUTABLE_APPSHELL.concat(MUTABLE_APPSHELL);
