@@ -1,7 +1,7 @@
 // 사용자 정보가 존재하지 않는다면 로그인 페이지로 이동
-if (!localStorage.getItem('name')) {
-  location.href = '/login';
-}
+// if (!localStorage.getItem('name')) {
+//   location.href = '/login';
+// }
 
 // window.onload
 $(function () {
