@@ -1,4 +1,4 @@
-const VERSION = 'v2';
+const VERSION = 'v3';
 const CACHE_NAME = 'paper-cache_' + VERSION;
 const IMAGE_CACHE_NAME = 'paper-image_' + VERSION;
 
