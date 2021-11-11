@@ -15,7 +15,33 @@
 <body>
     <!-- Div to show the scanner -->
     <div id="qr-reader" style="width:100%"></div>
-    <div id="qr-reader-results"></div>
+    <div id="qr-reader-results">
+        <p class="title">환자 정보</p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>회원번호</td>
+                    <td><span class="number"></span></td>
+                </tr>
+                <tr>
+                    <td>회원이름</td>
+                    <td>고은배</td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>남</td>
+                </tr>
+                <tr>
+                    <td>나이</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>병명</td>
+                    <td>좌측어깨골절</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <script src="./js/html5-qrcode.min.js"></script>
     <script>
         function docReady(fn) {
@@ -29,7 +55,7 @@
             }
         }
         function printScanResultPretty(decodedText, decodedResult){
-            var resultContainer = document.getElementById('qr-reader-results');
+            var resultContainer = $('#qr-reader-results .number');
                 resultContainer.text(decodedResult);
 
         }
@@ -41,7 +67,7 @@
                     ++countResults;
                     lastResult = decodedText;
                     // Handle on success condition with the decoded message.
-                    alert(decodedText, decodedResult);
+                    //alert(decodedText, decodedResult);
                     console.log(`Scan result ${decodedText}`, decodedResult);
                     html5QrcodeScanner.clear();
                 }
