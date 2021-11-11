@@ -49,3 +49,4 @@ table tbody td b{color:#f68e14; font-weight: normal;}
 #qr-reader>div:first-child{display: none !important;}
 #qr-reader__dashboard_section_csr button{border: 1px solid #999; padding:5px 10px; border-radius: 10px;margin-bottom: 10px;}
 #qr-reader-results{display: none;}
+#qr-reader-results.on{display: block;}
