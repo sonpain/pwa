@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>바코드인식</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=yes, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=11; chrome=1" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <link rel="stylesheet" href="./css/common.css" type="text/css">
+    <script src="./js/jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Div to show the scanner -->
+    <div id="qr-reader" style="width:100%"></div>
+    <div id="qr-reader-results"></div>
+    <script src="./js/html5-qrcode.min.js"></script>
+    <script>
+        function docReady(fn) {
+            // see if DOM is already available
+            if (document.readyState === "complete"
+                || document.readyState === "interactive") {
+                // call on next available tick
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        }
+        function printScanResultPretty(decodedText, decodedResult){
+            var resultContainer = document.getElementById('qr-reader-results');
+                resultContainer.text(decodedResult);
+
+        }
+        docReady(function () {
+            var resultContainer = document.getElementById('qr-reader-results');
+            var lastResult, countResults = 0;
+            function onScanSuccess(decodedText, decodedResult) {
+                if (decodedText !== lastResult) {
+                    ++countResults;
+                    lastResult = decodedText;
+                    // Handle on success condition with the decoded message.
+                    alert(decodedText, decodedResult);
+                    console.log(`Scan result ${decodedText}`, decodedResult);
+                    html5QrcodeScanner.clear();
+                }
+            }
+
+            var html5QrcodeScanner = new Html5QrcodeScanner(
+                "qr-reader", { fps: 10, qrbox: 250 });
+            html5QrcodeScanner.render(onScanSuccess);
+        });
+    </script>
+</body>
+
+</html>
