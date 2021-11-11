@@ -55,14 +55,15 @@
             }
         }
         function printScanResultPretty(decodedText, decodedResult){
-            var resultContainer = $('#qr-reader-results .number');
-                resultContainer.text(decodedText);
+            var resultText = $('.number');
+                resultText.text(decodedText);
 
                 //alert(decodedResult);
 
         }
         docReady(function () {
             var resultContainer = document.getElementById('qr-reader-results');
+                resultContainer.show();
             var lastResult, countResults = 0;
             function onScanSuccess(decodedText, decodedResult) {
                 if (decodedText !== lastResult) {
@@ -76,7 +77,7 @@
             }
 
             var html5QrcodeScanner = new Html5QrcodeScanner(
-                "qr-reader", { fps: 10, qrbox: 250 });
+                "qr-reader", { fps: 10, qrbox: 300 });
             html5QrcodeScanner.render(onScanSuccess);
         });
     </script>
