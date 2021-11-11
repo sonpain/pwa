@@ -55,7 +55,7 @@
             }
         }
         function printScanResultPretty(decodedText, decodedResult){
-            var resultText = $('.number');
+            var resultText = $('#qr-reader-results .number');
                 resultText.text(decodedText);
 
                 //alert(decodedResult);
@@ -63,7 +63,6 @@
         }
         docReady(function () {
             var resultContainer = document.getElementById('qr-reader-results');
-                resultContainer.show();
             var lastResult, countResults = 0;
             function onScanSuccess(decodedText, decodedResult) {
                 if (decodedText !== lastResult) {
