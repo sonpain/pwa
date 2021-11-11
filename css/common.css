@@ -44,6 +44,9 @@ table tfoot {
 table.col th,table.col td{text-align: center;}
 table tbody td b{color:#f68e14; font-weight: normal;}
 
+.dataTxt td{font-weight: bold; color: #fb0000;}
+.dataTxt td:first-child{background: #ffbfbf;color: #fb0000;}
+
 .title{font-size: 24px;padding:10px 0 0 10px; line-height: 30px; font-weight: bold;}
 #qr-reader__dashboard_section_swaplink{display: none !important;}
 #qr-reader>div:first-child{display: none !important;}
