@@ -58,11 +58,13 @@
             var resultText = $('#qr-reader-results .number');
                 resultText.text(decodedText);
 
+            var resultContainer = document.getElementById('qr-reader-results');
+                resultContainer.show();
                 //alert(decodedResult);
 
         }
         docReady(function () {
-            var resultContainer = document.getElementById('qr-reader-results');
+
             var lastResult, countResults = 0;
             function onScanSuccess(decodedText, decodedResult) {
                 if (decodedText !== lastResult) {
