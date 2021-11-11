@@ -44,12 +44,12 @@ table tfoot {
 table.col th,table.col td{text-align: center;}
 table tbody td b{color:#f68e14; font-weight: normal;}
 
-.dataTxt td{font-weight: bold; color: #fb0000;}
+.dataTxt td{font-weight: bold; background: #ffe9e9; color: #fb0000;}
 .dataTxt td:first-child{background: #ffbfbf;color: #fb0000;}
 
 .title{font-size: 24px;padding:10px 0 0 10px; line-height: 30px; font-weight: bold;}
 #qr-reader__dashboard_section_swaplink{display: none !important;}
 #qr-reader>div:first-child{display: none !important;}
 #qr-reader__dashboard_section_csr button{border: 1px solid #999; padding:5px 10px; border-radius: 10px;margin-bottom: 10px;}
-#qr-reader-results{display: none;}
+/*#qr-reader-results{display: none;}*/
 #qr-reader-results.on{display: block;}
