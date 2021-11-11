@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>바코드인식</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=11; chrome=1" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Barcode Reader">
+    <meta name="apple-mobile-web-app-title" content="Barcode Reader">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2196f3">
+    <meta name="theme-color" content="#2196f3">
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <link rel="stylesheet" href="./css/common.css" type="text/css">
+    <script src="./js/jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+      <button id="subscribe">구독하기</button>
+    </div>
+    <div class="wrap hide">
+      <div id="subscription_detail">
+        <!-- Subscription data will append here -->
+      </div>
+    </div>
+    <!-- Div to show the scanner -->
+    <div id="qr-reader" style="width:100%"></div>
+    <div id="qr-reader-results">
+        <p class="title">환자 정보</p>
+        <table>
+            <tbody>
+                <tr class="dataTxt">
+                    <td>회원번호</td>
+                    <td><span class="number"></span></td>
+                </tr>
+                <tr>
+                    <td>회원이름</td>
+                    <td>고은배</td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>남</td>
+                </tr>
+                <tr>
+                    <td>나이</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>병명</td>
+                    <td>좌측어깨골절</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="./js/app.js" async></script>
+    <script src="./js/html5-qrcode.min.js"></script>
+    <script>
+        function docReady(fn) {
+            // see if DOM is already available
+            if (document.readyState === "complete"
+                || document.readyState === "interactive") {
+                // call on next available tick
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        }
+        function printScanResultPretty(decodedText, decodedResult){
+            var resultText = $('#qr-reader-results .number');
+                resultText.text(decodedText);
+
+                //alert(decodedResult);
+                $('#qr-reader-results').addClass('on');
+
+        }
+        docReady(function () {
+
+            var lastResult, countResults = 0;
+            function onScanSuccess(decodedText, decodedResult) {
+                if (decodedText !== lastResult) {
+                    ++countResults;
+                    lastResult = decodedText;
+                    // Handle on success condition with the decoded message.
+                    printScanResultPretty(decodedText, decodedResult);
+                    //console.log(`Scan result ${decodedText}`, decodedResult);
+                    html5QrcodeScanner.clear();
+                }
+            }
+
+            var html5QrcodeScanner = new Html5QrcodeScanner(
+                "qr-reader", { fps: 10, qrbox: 300 });
+            html5QrcodeScanner.render(onScanSuccess);
+        });
+    </script>
+</body>
+
+</html>
