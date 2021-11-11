@@ -58,9 +58,8 @@
             var resultText = $('#qr-reader-results .number');
                 resultText.text(decodedText);
 
-            var resultContainer = document.getElementById('qr-reader-results');
-                resultContainer.show();
-                //alert(decodedResult);
+                alert(decodedResult);
+                $('#qr-reader-results').addClass('on');
 
         }
         docReady(function () {
