@@ -54,11 +54,11 @@
                 document.addEventListener("DOMContentLoaded", fn);
             }
         }
-        function printScanResultPretty(decodedText, decodedResult){
+        function printScanResultPretty(decodedResult){
             var resultContainer = $('#qr-reader-results .number');
                 resultContainer.text(decodedResult);
 
-                alert(decodedResult);
+                //alert(decodedResult);
 
         }
         docReady(function () {
@@ -69,8 +69,8 @@
                     ++countResults;
                     lastResult = decodedText;
                     // Handle on success condition with the decoded message.
-
-                    console.log(`Scan result ${decodedText}`, decodedResult);
+                    printScanResultPretty(decodedResult);
+                    //console.log(`Scan result ${decodedText}`, decodedResult);
                     html5QrcodeScanner.clear();
                 }
             }
