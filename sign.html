@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>canvas sign</title>
+        <script>
+            var canvas, context;
+            function init(canvasE){
+                canvas=document.getElementById(canvasE);
+                context=canvas.getContext("2d");
+
+                context.lineWidth="2";
+                context.strokeStyle="black";
+
+                canvas.addEventListener("mousemove",function(e){move(e)},false);
+                canvas.addEventListener("mousedown",function(e){down(e)},false);
+                canvas.addEventListener("mouseup",function(e){up(e)},false);
+                canvas.addEventListener("mouseout",function(e){out(e)},false);
+            }
+            var sX=0,sY=0;
+            var dragging=false;
+
+            function draw(cX,cU){
+                context.beginPath();
+                context.moveTo(sX,sY);
+                context.lineTo(cX,cY);
+                context.stroke();
+            }
+            function move(e){
+                if(!dragging) return;
+                var cX=e.offsetX;  cY=e.offsetY;
+                    draw(cX,cY);
+                    sX=cX;
+                    sY=cY;
+            }
+            function down(e){
+                sX=e.offsetX;
+                sY=e.offsetY;
+                dragging=true;
+            }
+            function up(e){
+                dragging=false;
+            }
+            function out(e){
+                dragging=false;
+                context.save();
+            }
+            function canvas_out(){
+                canvas=false;
+            }
+
+            /*
+            function saveImage(e) {
+                var dataURL = e.toDataURL();
+                $.ajax({
+                    type: "POST",
+                    url: "save.do",
+                    data: { imgBase64: dataURL }
+                }).done(function(o) {
+                    console.log('saved');
+                });
+            }
+            */
+
+
+            function b64ToUint8Array(b64Image) {
+                var img = atob(b64Image.split(',')[1]);
+                var img_buffer = [];
+                var i = 0;
+                    while (i < img.length) {
+                        img_buffer.push(img.charCodeAt(i));
+                        i++;
+                    }
+                return new Uint8Array(img_buffer);
+            }
+
+
+            function convert(canvasE){
+                canvas=document.getElementById(canvasE);
+                var b64Image = canvas.toDataURL();
+                var txt = 'photo' + canvasE;
+                var photo = document.getElementById(txt);
+                //console.log(txt)
+                    //photo.value=b64Image;
+                    photo.src = b64Image;
+                }
+
+            function send_sign(canvasE){
+                convert(canvasE);
+                //console.log(canvasE);
+                //alert(document.getElementById('photo').value);
+            }
+        </script>
+    </head>
+    <body>
+
+        <!-- <input type=hidden name='photocanvas1' id='photocanvas1'> -->
+        서명하세요!
+        <canvas id="canvas1" name="canvas1" style="background-color:aliceblue" width="400" height="200" onmouseover="init('canvas1')"></canvas>
+        <input type=button onclick="send_sign('canvas1')" value='전송'>
+        <img id="photocanvas1" src="" />
+        <br>
+        <!-- <input type=hidden name='photocanvas2' id='photocanvas2'> -->
+        서명하세요!
+        <canvas id="canvas2" name="canvas2" style="background-color:aliceblue" width="400" height="200" onmouseover="init('canvas2')"></canvas>
+        <input type=button onclick="send_sign('canvas2')" value='전송'>
+        <img id="photocanvas2" src="" />
+        <br>
+        <!-- <input type=hidden name='photocanvas3' id='photocanvas3'> -->
+        서명하세요!
+        <canvas id="canvas3" name="canvas3" style="background-color:aliceblue" width="400" height="200" onmouseover="init('canvas3')"></canvas>
+        <input type=button onclick="send_sign('canvas3')" value='전송'>
+        <img id="photocanvas3" src="" />
+
+    </body>
+</html>
