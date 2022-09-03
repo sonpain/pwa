@@ -1,98 +1,102 @@
-<!doctype html>
-<html lang="kr">
-    <head>
-        <meta charset="UTF-8">
-        <title>canvas sign</title>
-        <script>
-            var canvas, context;
-            function init(canvasE){
-                canvas=document.getElementById(canvasE);
-                context=canvas.getContext("2d");
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    
+    <title>canvas sign</title>
+    <script>
+        var canvas, context;
+        function init(canvasE){
+            canvas=document.getElementById(canvasE);
+            context=canvas.getContext("2d");
 
-                context.lineWidth="2";
-                context.strokeStyle="black";
+            context.lineWidth="2";
+            context.strokeStyle="black";
 
-                canvas.addEventListener("mousemove",function(e){move(e)},false);
-                canvas.addEventListener("mousedown",function(e){down(e)},false);
-                canvas.addEventListener("mouseup",function(e){up(e)},false);
-                canvas.addEventListener("mouseout",function(e){out(e)},false);
-            }
-            var sX=0,sY=0;
-            var dragging=false;
+            canvas.addEventListener("mousemove",function(e){move(e)},false);
+            canvas.addEventListener("mousedown",function(e){down(e)},false);
+            canvas.addEventListener("mouseup",function(e){up(e)},false);
+            canvas.addEventListener("mouseout",function(e){out(e)},false);
+        }
+        var sX=0,sY=0;
+        var dragging=false;
 
-            function draw(cX,cU){
-                context.beginPath();
-                context.moveTo(sX,sY);
-                context.lineTo(cX,cY);
-                context.stroke();
-            }
-            function move(e){
-                if(!dragging) return;
-                var cX=e.offsetX;  cY=e.offsetY;
-                    draw(cX,cY);
-                    sX=cX;
-                    sY=cY;
-            }
-            function down(e){
-                sX=e.offsetX;
-                sY=e.offsetY;
-                dragging=true;
-            }
-            function up(e){
-                dragging=false;
-            }
-            function out(e){
-                dragging=false;
-                context.save();
-            }
-            function canvas_out(){
-                canvas=false;
-            }
+        function draw(cX,cU){
+            context.beginPath();
+            context.moveTo(sX,sY);
+            context.lineTo(cX,cY);
+            context.stroke();
+        }
+        function move(e){
+            if(!dragging) return;
+            var cX=e.offsetX;  cY=e.offsetY;
+                draw(cX,cY);
+                sX=cX;
+                sY=cY;
+        }
+        function down(e){
+            sX=e.offsetX;
+            sY=e.offsetY;
+            dragging=true;
+        }
+        function up(e){
+            dragging=false;
+        }
+        function out(e){
+            dragging=false;
+            context.save();
+        }
+        function canvas_out(){
+            canvas=false;
+        }
 
-            /*
-            function saveImage(e) {
-                var dataURL = e.toDataURL();
-                $.ajax({
-                    type: "POST",
-                    url: "save.do",
-                    data: { imgBase64: dataURL }
-                }).done(function(o) {
-                    console.log('saved');
-                });
-            }
-            */
-
-
-            function b64ToUint8Array(b64Image) {
-                var img = atob(b64Image.split(',')[1]);
-                var img_buffer = [];
-                var i = 0;
-                    while (i < img.length) {
-                        img_buffer.push(img.charCodeAt(i));
-                        i++;
-                    }
-                return new Uint8Array(img_buffer);
-            }
+        /*
+        function saveImage(e) {
+            var dataURL = e.toDataURL();
+            $.ajax({
+                type: "POST",
+                url: "save.do",
+                data: { imgBase64: dataURL }
+            }).done(function(o) {
+                console.log('saved');
+            });
+        }
+        */
 
 
-            function convert(canvasE){
-                canvas=document.getElementById(canvasE);
-                var b64Image = canvas.toDataURL();
-                var txt = 'photo' + canvasE;
-                var photo = document.getElementById(txt);
-                //console.log(txt)
-                    //photo.value=b64Image;
-                    photo.src = b64Image;
+        function b64ToUint8Array(b64Image) {
+            var img = atob(b64Image.split(',')[1]);
+            var img_buffer = [];
+            var i = 0;
+                while (i < img.length) {
+                    img_buffer.push(img.charCodeAt(i));
+                    i++;
                 }
+            return new Uint8Array(img_buffer);
+        }
 
-            function send_sign(canvasE){
-                convert(canvasE);
-                //console.log(canvasE);
-                //alert(document.getElementById('photo').value);
+
+        function convert(canvasE){
+            canvas=document.getElementById(canvasE);
+            var b64Image = canvas.toDataURL();
+            var txt = 'photo' + canvasE;
+            var photo = document.getElementById(txt);
+            //console.log(txt)
+                //photo.value=b64Image;
+                photo.src = b64Image;
             }
-        </script>
-    </head>
-    <body>
+
+        function send_sign(canvasE){
+            convert(canvasE);
+            //console.log(canvasE);
+            //alert(document.getElementById('photo').value);
+        }
+    </script>
+</head>
+<body>
 
         <!-- <input type=hidden name='photocanvas1' id='photocanvas1'> -->
         서명하세요!
