@@ -9,30 +9,85 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
     <style>
-        canvas{border:1px solid rgb(100, 100, 100)}
-        img{border:1px solid rgb(8, 97, 124)}
-    </style>
+       body{ display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    }
+    .m-signature-pad{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    max-height: 750px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 27%), 0 0 40px rgb(0 0 0 / 8%) inset;
+    border-radius: 4px;
+    padding: 16px;
+    }
+    .sign1 , .sign2 , .sign3{position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border: 1px solid #f4f4f4;
+    height:250px;
+}
+canvas{position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 2%) inset;}
+button{position:absolute; bottom:0;}
+.save{left:70px;}
+.description{    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 14px;}
+</style>
 </head>
 
 <body>
     <div id="signature-pad" class="m-signature-pad">
         <div class="canvasWrap">
             <div class="sign1">
-                <canvas width="400px" height="250px"></canvas>
+                <canvas></canvas>
                 <img class="photo" src="" alt="">
                 <div class="description">사인해 주세요~</div>
                 <button type="button" class="button clear" canvasTarget="sign1">지우기</button>
                 <button type="button" class="button save" canvasTarget="sign1">저장</button>
             </div>
             <div class="sign2">
-                <canvas width="400px" height="250px"></canvas>
+                <canvas></canvas>
                 <img class="photo" src="" alt="">
                 <div class="description">사인해 주세요~</div>
                 <button type="button" class="button clear" canvasTarget="sign2">지우기</button>
                 <button type="button" class="button save"  canvasTarget="sign2">저장</button>
             </div>
             <div class="sign3">
-                <canvas width="400px" height="250px"></canvas>
+                <canvas></canvas>
                 <img class="photo" src="" alt="">
                 <div class="description">사인해 주세요~</div>
                 <button type="button" class="button clear" canvasTarget="sign3">지우기</button>
@@ -109,19 +164,29 @@
                 */
             } 
         });
-        /* //리사이징 필요시..
+         //리사이징 필요시..
         function resizeCanvas() { 
-            var canvas = $(".sign1 canvas")[0]; 
+            var canvas1 = $(".sign1 canvas")[0]; 
+            var canvas2 = $(".sign2 canvas")[0]; 
+            var canvas3 = $(".sign3 canvas")[0]; 
             var ratio = Math.max(window.devicePixelRatio || 1, 1); 
-            canvas.width = canvas.offsetWidth * ratio; 
-            canvas.height = canvas.offsetHeight * ratio; 
-            canvas.getContext("2d").scale(ratio, ratio); 
+            canvas1.width = canvas1.offsetWidth * ratio; 
+            canvas1.height = canvas1.offsetHeight * ratio; 
+            canvas1.getContext("2d").scale(ratio, ratio); 
+
+            canvas2.width = canvas2.offsetWidth * ratio; 
+            canvas2.height = canvas2.offsetHeight * ratio; 
+            canvas2.getContext("2d").scale(ratio, ratio); 
+
+            canvas3.width = canvas3.offsetWidth * ratio; 
+            canvas3.height = canvas3.offsetHeight * ratio; 
+            canvas3.getContext("2d").scale(ratio, ratio); 
         } 
         $(window).on("resize", function () { 
             resizeCanvas(); 
         }); 
         resizeCanvas();
-        */
+        
     </script>
 </body>
 
