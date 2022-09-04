@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>::: 사인패드 테스트 :::</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <style>
+        canvas{border:1px solid rgb(100, 100, 100)}
+        img{border:1px solid rgb(8, 97, 124)}
+    </style>
+</head>
+
+<body>
+    <div id="signature-pad" class="m-signature-pad">
+        <div class="canvasWrap">
+            <div class="sign1">
+                <canvas width="400px" height="250px"></canvas>
+                <img class="photo" src="" alt="">
+                <div class="description">사인해 주세요~</div>
+                <button type="button" class="button clear" canvasTarget="sign1">지우기</button>
+                <button type="button" class="button save" canvasTarget="sign1">저장</button>
+            </div>
+            <div class="sign2">
+                <canvas width="400px" height="250px"></canvas>
+                <img class="photo" src="" alt="">
+                <div class="description">사인해 주세요~</div>
+                <button type="button" class="button clear" canvasTarget="sign2">지우기</button>
+                <button type="button" class="button save"  canvasTarget="sign2">저장</button>
+            </div>
+            <div class="sign3">
+                <canvas width="400px" height="250px"></canvas>
+                <img class="photo" src="" alt="">
+                <div class="description">사인해 주세요~</div>
+                <button type="button" class="button clear" canvasTarget="sign3">지우기</button>
+                <button type="button" class="button save" canvasTarget="sign3">저장</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var canvas1 = $(".sign1 canvas")[0];
+        var canvas2 = $(".sign2 canvas")[0];
+        var canvas3 = $(".sign3 canvas")[0];
+
+        var sign1 = new SignaturePad(canvas1, {
+            minWidth: 1,
+            maxWidth: 3,
+            penColor: "rgb(0, 0, 0)"
+        });
+        var sign2 = new SignaturePad(canvas2, {
+            minWidth: 1,
+            maxWidth: 3,
+            penColor: "rgb(0, 0, 0)"
+        });
+        var sign3 = new SignaturePad(canvas3, {
+            minWidth: 1,
+            maxWidth: 3,
+            penColor: "rgb(0, 0, 0)"
+        });
+
+
+        $('.clear').on("click", function () {
+            var target = eval($(this).attr('canvasTarget'));
+            console.log(target);
+           target.clear();
+        }); 
+        $('.save').on('click' , function(){
+            var sign = eval($(this).attr('canvasTarget'));
+            if (sign.isEmpty()) { 
+                alert("사인해 주세요!!"); 
+            } else { 
+                //imgBase64
+                //console.log(sign.toDataURL());
+                //$('.photo').attr('src' ,  sign.toDataURL());
+
+                // blob
+                var data = atob(sign.toDataURL('image/png').split(",")[1]);
+                var array = [];
+                for(var i=0; i<data.length; i++){
+                    array.push(data.charCodeAt(i));
+                }
+                var file = new Blob([new Uint8Array(array)],{type:'image/png'});
+                var imgURL = URL.createObjectURL(file);
+                console.log(imgURL);
+
+                $(this).parent().children('.photo').attr('src' ,  imgURL);
+
+                /*
+                $.ajax({ 
+                    url: "save.jsp", 
+                    method: "post", 
+                    dataType: "json", 
+                    data: { 
+                        //골라서 둘중에 하나 로..
+                        signImg: sign.toDataURL() // imgBase64 으로 전송 
+                        signImg2: file // blob으로 이미지파일 전송
+                    }, 
+                    success: function (r) { 
+                        alert("저장완료 : " + r.filename); 
+                        sign.clear(); 
+                    }, 
+                    error: function (res) { 
+                        console.log(res); 
+                    } 
+                }); 
+                */
+            } 
+        });
+        /* //리사이징 필요시..
+        function resizeCanvas() { 
+            var canvas = $(".sign1 canvas")[0]; 
+            var ratio = Math.max(window.devicePixelRatio || 1, 1); 
+            canvas.width = canvas.offsetWidth * ratio; 
+            canvas.height = canvas.offsetHeight * ratio; 
+            canvas.getContext("2d").scale(ratio, ratio); 
+        } 
+        $(window).on("resize", function () { 
+            resizeCanvas(); 
+        }); 
+        resizeCanvas();
+        */
+    </script>
+</body>
+
+</html>
