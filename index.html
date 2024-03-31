@@ -9,8 +9,8 @@
     <link rel="manifest" href="./manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Barcode Reader">
-    <meta name="apple-mobile-web-app-title" content="Barcode Reader">
+    <meta name="application-name" content="P&D SOLUTION">
+    <meta name="apple-mobile-web-app-title" content="P&D SOLUTION">
     <meta name="msapplication-starturl" content="/pwa/">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
@@ -25,81 +25,12 @@
 
 <body>
     <div class="wrap">
-      <button id="subscribe">구독하기</button>
-    </div>
-    <div class="wrap hide">
-      <div id="subscription_detail">
-        <!-- Subscription data will append here -->
-      </div>
-    </div>
-    <!-- Div to show the scanner -->
-    <div id="qr-reader" style="width:100%"></div>
-    <div id="qr-reader-results">
-        <p class="title">환자 정보</p>
-        <table>
-            <tbody>
-                <tr class="dataTxt">
-                    <td>회원번호</td>
-                    <td><span class="number"></span></td>
-                </tr>
-                <tr>
-                    <td>회원이름</td>
-                    <td>고은배</td>
-                </tr>
-                <tr>
-                    <td>성별</td>
-                    <td>남</td>
-                </tr>
-                <tr>
-                    <td>나이</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>병명</td>
-                    <td>좌측어깨골절</td>
-                </tr>
-            </tbody>
-        </table>
+      <iframe src="http://spotfire.pndsolution.com:11011/spotfire/wp/OpenAnalysis?file=c3405a10-6943-4384-b5f3-544ea62d3930&options=4-0,2-0,3-0" frameborder="0"></iframe>
     </div>
     <script src="./js/app.js" async></script>
     <script src="./js/html5-qrcode.min.js"></script>
     <script>
-        function docReady(fn) {
-            // see if DOM is already available
-            if (document.readyState === "complete"
-                || document.readyState === "interactive") {
-                // call on next available tick
-                setTimeout(fn, 1);
-            } else {
-                document.addEventListener("DOMContentLoaded", fn);
-            }
-        }
-        function printScanResultPretty(decodedText, decodedResult){
-            var resultText = $('#qr-reader-results .number');
-                resultText.text(decodedText);
-
-                //alert(decodedResult);
-                $('#qr-reader-results').addClass('on');
-
-        }
-        docReady(function () {
-
-            var lastResult, countResults = 0;
-            function onScanSuccess(decodedText, decodedResult) {
-                if (decodedText !== lastResult) {
-                    ++countResults;
-                    lastResult = decodedText;
-                    // Handle on success condition with the decoded message.
-                    printScanResultPretty(decodedText, decodedResult);
-                    //console.log(`Scan result ${decodedText}`, decodedResult);
-                    html5QrcodeScanner.clear();
-                }
-            }
-
-            var html5QrcodeScanner = new Html5QrcodeScanner(
-                "qr-reader", { fps: 10, qrbox: 300 });
-            html5QrcodeScanner.render(onScanSuccess);
-        });
+       
     </script>
 </body>
 
