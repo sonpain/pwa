@@ -1,0 +1,1703 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Popup Control</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" media="all" href="main.css" />
+        <link rel="stylesheet" href="./coloris.min.css">
+    </head>
+    <body>
+        <div class="main">
+            <section class="rotationControl section text-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card bg-primary border-light shadow-soft tblr">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3>팝업 옵션</h3>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group mb-1 popTit">
+                                        <label for="titleValue"  class="tit formLabel">팝업 타이틀</label>
+                                        <input type="text" id="titleValue" class="form-control titleInput" placeholder="타이틀을 입력해주세요" />
+                                        <small class="form-text text-muted">팝업 타이틀을 입력해 주세요</small>
+                                    </div>
+                                    <div class="d-flex mb-1 popupSize">
+                                        <div class="col-6">
+                                            <div class="form-group mr-05 popWidth opt">
+                                                <label for="puWValue"  class="tit formLabel">팝업 넓이</label>
+                                                <input type="text" id="puWValue" class="form-control puWInput" name="popup-width" unit="px" placeholder="팝업 넓이" value="800" />
+                                                <span class="unit">px</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group ml-05 popHeight opt">
+                                                <label for="puHValue"  class="tit formLabel">팝업 높이</label>
+                                                <input type="text" id="puHValue" class="form-control puHInput" name ="popup-height" unit="px" placeholder="팝업 높이" value="400" />
+                                                <span class="unit">px</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><small class="form-text text-muted">넓이, 높이 값을 입력해 주세요</small></div>
+                                    </div>
+                                    <div class="d-flex mb-1 popupPosition">
+                                        <div class="col-6">
+                                            <div class="form-group mr-05 popTop opt">
+                                                <label for="puTValue"  class="tit formLabel">팝업 위치 (Top)</label>
+                                                <input type="text" id="puTValue" class="form-control puTInput" name ="popup-position-top" placeholder="팝업 위치 (Top)" value="50" unit="px" />
+                                                <span class="unit">px</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group ml-05 popLeft opt">
+                                                <label for="puLValue"  class="tit formLabel">팝업 위치 (Left)</label>
+                                                <input type="text" id="puLValue" class="form-control puLInput" name="popup-position-left" placeholder="팝업 위치 (Left)" value="50" unit="px" />
+                                                <span class="unit">px</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><small class="form-text text-muted">Top,Left값을 입력해 주세요</small></div>
+                                    </div>
+                                    <div class="d-flex mb-1 popupFunction">
+                                        <legend class="formLabel">팝업 기능</legend>
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch form-group mr-05">
+                                                <input type="checkbox" class="custom-control-input" value="drag" id="customSwitch1">
+                                                <label class="custom-control-label" for="customSwitch1">드래그</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch form-group ml-05">
+                                                <input type="checkbox" class="custom-control-input" value="resize" id="customSwitch2">
+                                                <label class="custom-control-label" for="customSwitch2">리사이즈</label>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted ml-0 w83">팝업 기능을 활성화해 주세요</small>
+                                    </div>
+                                    <div class="d-flex mb-1 popupCon">
+                                        <legend class="formLabel">팝업 내용</legend>
+                                        <div class="col-3">
+                                            <div class="form-check form-group mr-1">
+                                                <input class="form-check-input" type="radio" name="popupcontents" id="popupcontents1" value="option1" checked="">
+                                                <label class="form-check-label" for="popupcontents1">에디터</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-check form-group ml-1">
+                                                <input class="form-check-input" type="radio" name="popupcontents" id="popupcontents2" value="option2">
+                                                <label class="form-check-label" for="popupcontents2">필터</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-check form-group ml-1">
+                                                <input class="form-check-input" type="radio" name="popupcontents" id="popupcontents3" value="option3">
+                                                <label class="form-check-label" for="popupcontents3">차트</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-025"><small class="form-text text-muted">팝업 내용 요소를 선택해 주세요</small></div>
+                                    </div>
+                                    <div class="form-group filterNum" style="display: none;">
+                                        <label for="filterValue"  class="tit formLabel">필터 개수</label>
+                                        <input type="text" id="filterValue" class="form-control filterInput" placeholder="필터 개수를 입력해 주세요" />
+                                        <small class="form-text text-muted">필터 개수를 입력해 주세요</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card bg-primary border-light shadow-soft buttonOptions">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3>버튼 옵션</h3>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group mb-1 btnText opt">
+                                        <label for="btnTextValue"  class="tit formLabel">버튼</label>
+                                        <input type="text" id="btnTextValue" class="form-control btnTextInput" placeholder="버튼 이름을 입력해 주세요" />
+                                        <small class="form-text text-muted">버튼 이름을 입력해 주세요</small>
+                                    </div>
+                                    <div class="d-flex mb-1 btnAreaSelect radioChk">
+                                        <legend class="formLabel">버튼 위치</legend>
+                                        <div class="col-6">
+                                            <div class="form-check form-group mr-05">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="">
+                                                <label class="form-check-label" for="exampleRadios1">Text area</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-check form-group ml-05">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">Chart Title</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><small class="form-text text-muted">버튼이 위치할 곳을 선택해 주세요</small></div>
+                                    </div>
+                                    <div class="d-flex btnPosition">
+                                        <div class="col-6">
+                                            <div class="form-group mr-05">
+                                                <label for="btnTop" class="formLabel">버튼 위치 (Top)</label>
+                                                <input type="text" id="btnTop" class="form-control btnTop" name="btn-position-top" placeholder="버튼 위치 (Top)" value="0" unit="px" />
+                                                <span class="unit">px</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group ml-05">
+                                                <label for="btnLeft" class="formLabel">버튼 위치 (Left)</label>
+                                                <input type="text" id="btnLeft" class="form-control btnLeft" name="btn-position-left" placeholder="버튼 위치 (Left)" value="0" unit="px" />
+                                                <span class="unit">px</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><small class="form-text text-muted">Text area에 위치할 곳을 설정해 주세요</small></div>
+                                    </div>
+                                    <div class="form-group chartID" style="display: none;">
+                                        <label for="chartIDValue"  class="tit formLabel">차트 ID</label>
+                                        <input type="text" id="chartIDValue" class="form-control chartIDInput" placeholder="차트 ID 첫 8자리를 입력해 주세요" />
+                                        <small class="form-text text-muted">차트 ID 첫 8자리를 입력해 주세요</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card bg-primary border-light shadow-soft colorOptions">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3>컬러 옵션</h3>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group mb-1 square opt">
+                                        <label for="popupBGColor" class="formLabel">팝업 배경 컬러</label>
+                                        <input type="text" id="popupBGColor" class="form-control popupBGColor coloris instance2" name="popup-bg-color" value="#ffffff"  unit="" />
+                                        <small class="form-text text-muted ml-0 w83">팝업 배경 컬러를 선택해 주세요</small>
+                                    </div>
+                                    <div class="d-flex mb-1">
+                                        <div class="col-6">
+                                            <div class="form-group square mr-05 opt">
+                                                <label for="titleBGColor" class="formLabel">팝업 타이틀 배경 컬러</label>
+                                                <input type="text" id="titleBGColor" class="form-control titleBGColor coloris instance2" name="title-bg-color" value="#118AB2" unit="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group square ml-05 opt">
+                                                <label for="titleTxtColor" class="formLabel">팝업 타이틀 명 컬러</label>
+                                                <input type="text" id="titleTxtColor" class="form-control titleTxtColor coloris instance2" name="title-txt-color" value="#ffffff"  unit="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><small class="form-text text-muted">타이틀 배경 / 명 컬러를 선택해 주세요</small></div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col-6">
+                                            <div class="form-group square mr-05 opt">
+                                                <label for="btnTxtColor" class="formLabel pb-05">버튼 이름 컬러</label>
+                                                <input type="text" id="btnTxtColor" class="form-control btnTxtColor coloris instance2" name="btn-text-color" value="#ffffff"  unit="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group square ml-05 opt">
+                                                <label for="btnBGColor" class="formLabel pb-05">버튼 배경 컬러</label>
+                                                <input type="text" id="btnBGColor" class="form-control btnBGColor coloris instance2" name="btn-bg-color" value="#ef476f"  unit="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><small class="form-text text-muted">버튼 배경 / 이름 컬러를 선택해 주세요</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-primary border-light shadow-soft">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3>결과</h3>
+                                    </div>
+                                    <hr />
+                                    <div class="d-flex">
+                                        <div class="editorBtnWrap col-6 m-off">
+                                            <div class="form-group pr-05"><button type="button" class="btn btn-primary animate-down-2 w100 editorBtn">내용등록하기</button></div>
+                                        </div>
+                                        <div class="previewBtnWrap col-6 m-off" style="display: none;">
+                                            <div class="form-group pr-05"><button type="button" class="btn btn-primary animate-down-2 w100 previewBtn">미리보기</button></div>
+                                        </div>
+                                        <div class="optionBtnWrap col-6 m-off" style="display: none;">
+                                            <div class="form-group pr-05"><button type="button" class="btn btn-primary animate-down-2 w100 optionBtn" data-toggle="modal" data-target="#modal-result">옵션선택하기</button></div>
+                                        </div>
+                                        <div class="col-6 col-m">
+                                            <div class="form-group pl-05">
+                                                <button type="button" class="btn btn-primary animate-down-2 w100 resultBtn" data-toggle="modal" data-target="#modal-default">코드생성하기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="chartOptionWrap modal fade" id="modal-option" tabindex="-1" role="dialog" aria-labelledby="madal-option" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body">
+                        <div class="chartSelectWrap d-flex mb-1">
+                            <label class="formLabel">차트 선택하기</label>
+                            <div class="chartSelect">
+                                <div class="selectWrap bar shadow-soft rounded on" chartName="bar" title="Bar Chart" >Bar Chart</div>
+                            </div>
+                            <div class="chartSelect">
+                                <div class="selectWrap line shadow-soft rounded" chartName="line" title="Line Chart">Line Chart</div>
+                            </div>
+                            <div class="chartSelect">
+                                <div class="selectWrap doughnut shadow-soft rounded" chartName="doughnut" title="Doughnut Chart">Doughnut Chart</div>
+                            </div>
+                            <div class="chartSelect">
+                                <div class="selectWrap polar shadow-soft rounded" chartName="polarArea" title="PolarArea Chart">PolarArea Chart</div>
+                            </div>
+                            <div class="chartSelect">
+                                <div class="selectWrap radar shadow-soft rounded" chartName="radar" title="Radar Chart">Radar Chart</div>
+                            </div>
+                            <div class="chartSelect">
+                                <div class="selectWrap table shadow-soft rounded" chartName="table" title="Table">Table</div>
+                            </div>
+                        </div>
+                        <div class="barChartWrap chartWrap">
+                            <!--Accordion-->
+                            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
+                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-1">
+                                        <div class="pt-3">
+                                            <div class="barChart labelsWrap">
+                                                <div class="form-group barLabels">
+                                                    <input type="text" id="barLabelData" class="form-control barLabelDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="dataSetsWrap">
+                                            <div class="dataWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 dataSets1">
+                                                <div class="dataSetsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>데이터</button></li>
+                                                        <li><button>옵션</button></li>
+                                                    </ul>
+                                                    <button class="removeDataSet bg-primary border-light shadow-soft rounded" title="Delete DataSet">삭제</button>
+                                                    <div class="removeInfo"></div>
+                                                </div>
+                                                <div class="form-group dataSets_data">
+                                                    <input type="text" id="barData1" class="form-control barDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                                <div class="dataSets_option" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-categoryName" class="formLabel">카테고리</label>
+                                                            <input type="text" id="bar-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-chartColor" class="formLabel">차트 컬러</label>
+                                                            <input type="text" id="bar-chartColor" class="coloris instance2 form-control chartColor" name="chart-color" data-option-name="backgroundColor" data-type="string" placeholder="차트 컬러 입력">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-chartAxis" class="formLabel">축 위치</label>
+                                                            <select name="chartAxis" id="bar-chartAxis" class="chartAxisSelect custom-select" data-option-name="yAxisID" data-type="string">
+                                                                <option value="y1">왼쪽</option>
+                                                                <option value="y2">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-axisLine" class="formLabel">눈금선 표시</label>
+                                                            <select name="axisLine" id="bar-axisLine" class="axisLineSelect custom-select">
+                                                                <option value="false">false</option>
+                                                                <option value="true">true</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="addDataSet bg-primary border-light shadow-soft rounded mt-1" title="Add DataSet">Add</button>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
+                                        <span class="h6 mb-0 font-weight-bold">OPTIONS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-3">
+                                        <div class="optionSetsWrap">
+                                            <div class="optionWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 optionSets">
+                                                <div class="optionsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>공통</button></li>
+                                                        <li><button>차트</button></li>
+                                                        <li><button>레이블</button></li>
+                                                        <li><button>범례</button></li>
+                                                        <li><button>툴팁</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="option_common">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-common-font-size" class="formLabel">축 글꼴 크기</label>
+                                                            <input type="text" id="bar-common-font-size" class="form-control common-font-size" name="common-font-size" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-common-bg-color" class="formLabel">화면 배경색</label>
+                                                            <input type="text" id="bar-common-bg-color" class="form-control common-bg-color coloris instance2" name="common-bg-color" value="#ffffff" data-option-name="plugins.customCanvasBackgroundColor.color" data-type="string" placeholder="화면 배경색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_chart" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-logic" class="formLabel">막대 방향</label>
+                                                            <select name="bar-logic" id="bar-logic" class="bar-logic custom-select" data-option-name="indexAxis" data-type="string">
+                                                                <option value="x" selected>수직</option>
+                                                                <option value="y">수평</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="stacked-bar" class="formLabel">누적 막대</label>
+                                                            <select name="stacked-bar" id="stacked-bar" class="stacked-bar custom-select" data-option-name="stacked" data-type="boolean">
+                                                                <option value="false" selected>false</option>
+                                                                <option value="true">true</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-width" class="formLabel">막대 넓이</label>
+                                                            <input type="text" id="bar-width" class="form-control bar-width" name="bar-width" data-option-name="barPercentage" data-type="number" placeholder="막대 넓이 입력" value="90">
+                                                            <span class="unit">%</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-border-radius" class="formLabel">막대 라운드</label>
+                                                            <input type="text" id="bar-border-radius" class="form-control bar-border-radius" name="bar-border-radius" data-option-name="borderRadius" data-type="number" value="3" placeholder="막대 라운드 입력">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_label" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-label-check" class="formLabel">레이블 표시</label>
+                                                            <select name="label-check" id="bar-label-check" data-option-name="plugins.datalabels.display" data-type="boolean" class="label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-label-position" class="formLabel">레이블 위치</label>
+                                                            <select name="label-position" id="bar-label-position" data-option-name="plugins.datalabels.anchor" data-type="string" class="label-position custom-select">
+                                                                <option value="center" selected>안쪽</option>
+                                                                <option value="end">바깥쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-label-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="bar-label-font-size" class="form-control label-font-size" name="label-font-size" data-option-name="plugins.datalabels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-label-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="bar-label-font-color" class="form-control label-font-color coloris instance2" name="label-font-color" data-option-name="plugins.datalabels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_legend" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-legend-check" class="formLabel">범례 표시</label>
+                                                            <select name="legend-check" id="bar-legend-check" class="legend-check custom-select" data-option-name="plugins.legend.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-legend-position" class="formLabel">범례 위치</label>
+                                                            <select name="legend-position" id="bar-legend-position" class="legend-position custom-select" data-option-name="plugins.legend.position" data-type="string">
+                                                                <option value="top" selected>위</option>
+                                                                <option value="bottom">아래</option>
+                                                                <option value="left">왼쪽</option>
+                                                                <option value="right">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-legend-style" class="formLabel">범례 스타일</label>
+                                                            <select name="legend-style" id="bar-legend-style" class="legend-style custom-select" data-option-name="plugins.legend.labels.pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-legend-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="bar-legend-font-size" class="form-control legend-font-size" name="legend-font-size" data-option-name="plugins.legend.labels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-legend-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="bar-legend-font-color" class="form-control legend-font-color coloris instance2" name="legend-font-color" data-option-name="plugins.legend.labels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_tooltip" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="bar-tooltip-check" class="formLabel">툴팁 표시</label>
+                                                            <select name="tooltip-check" id="bar-tooltip-check" class="tooltip-check custom-select" data-option-name="plugins.tooltip.enabled" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-tooltip-bg-color" class="formLabel">배경 색</label>
+                                                            <input type="text" id="bar-tooltip-bg-color" class="form-control tooltip-bg-color coloris instance2" name="tooltip-bg-color" data-option-name="plugins.tooltip.backgroundColor" data-type="string" value="#000000" placeholder="배경 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-tooltip-title-color" class="formLabel">제목 색</label>
+                                                            <input type="text" id="bar-tooltip-title-color" class="form-control tooltip-title-color coloris instance2" name="tooltip-title-color" value="#ffffff" data-option-name="plugins.tooltip.titleColor" data-type="string" placeholder="제목 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-tooltip-content-color" class="formLabel">본문 색</label>
+                                                            <input type="text" id="bar-tooltip-content-color" class="form-control tooltip-content-color coloris instance2" name="tooltip-content-color" value="#ffffff" data-option-name="plugins.tooltip.bodyColor" data-type="string" placeholder="본문 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Accordion-->
+                        </div>
+                        <div class="lineChartWrap chartWrap" style="display: none;">
+                            <!--Accordion-->
+                            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
+                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-1">
+                                        <div class="pt-3">
+                                            <div class="lineChart labelsWrap">
+                                                <div class="form-group lineLabels">
+                                                    <input type="text" id="lineLabelData" class="form-control lineLabelDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="dataSetsWrap">
+                                            <div class="dataWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 dataSets1">
+                                                <div class="dataSetsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>데이터</button></li>
+                                                        <li><button>옵션</button></li>
+                                                    </ul>
+                                                    <button class="removeDataSet bg-primary border-light shadow-soft rounded" title="Delete DataSet">삭제</button>
+                                                    <div class="removeInfo"></div>
+                                                </div>
+                                                <div class="form-group dataSets_data">
+                                                    <input type="text" id="lineData1" class="form-control lineDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                                <div class="dataSets_option" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="line-categoryName" class="formLabel">카테고리</label>
+                                                            <input type="text" id="line-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-chartColor" class="formLabel">라인 컬러</label>
+                                                            <input type="text" id="line-chartColor" class="form-control chartColor coloris instance2" name="chart-color" placeholder="라인컬러 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-pointColor" class="formLabel">마커 컬러</label>
+                                                            <input type="text" id="line-pointColor" class="form-control chartPointColor coloris instance2" name="chart-color" placeholder="마커컬러 입력">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="lineStyle" class="formLabel">라인 스타일</label>
+                                                            <select name="lineStyle" id="lineStyle" class="lineStyleSelect custom-select" data-option-name="borderDash">
+                                                                <option value="0,0">직선</option>
+                                                                <option value="3,3">점선</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="markerStyle" class="formLabel">마커 스타일</label>
+                                                            <select name="markerStyle" id="markerStyle" class="markerStyleSelect custom-select" data-option-name="pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-chartAxis" class="formLabel">축 위치</label>
+                                                            <select name="chartAxis" id="line-chartAxis" class="chartAxisSelect custom-select" data-option-name="yAxisID" data-type="string">
+                                                                <option value="y1">왼쪽</option>
+                                                                <option value="y2">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-axisLine" class="formLabel">눈금선 표시</label>
+                                                            <select name="axisLine" id="line-axisLine" class="axisLineSelect custom-select">
+                                                                <option value="false">false</option>
+                                                                <option value="true">true</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="addDataSet bg-primary border-light shadow-soft rounded mt-1" title="Add DataSet">Add</button>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
+                                        <span class="h6 mb-0 font-weight-bold">OPTIONS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-3">
+                                        <div class="optionSetsWrap">
+                                            <div class="optionWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 optionSets">
+                                                <div class="optionsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>공통</button></li>
+                                                        <li><button>차트</button></li>
+                                                        <li><button>레이블</button></li>
+                                                        <li><button>범례</button></li>
+                                                        <li><button>툴팁</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="option_common">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="line-common-font-size" class="formLabel">축 글꼴 크기</label>
+                                                            <input type="text" id="line-common-font-size" class="form-control common-font-size" name="common-font-size" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-common-bg-color" class="formLabel">화면 배경색</label>
+                                                            <input type="text" id="line-common-bg-color" class="form-control common-bg-color coloris instance2" name="common-bg-color" value="#ffffff" data-option-name="plugins.customCanvasBackgroundColor.color" data-type="string" placeholder="화면 배경색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_chart" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="line-border-width" class="formLabel">라인 두께</label>
+                                                            <input type="text" id="line-border-width" class="form-control line-border-width" name="line-border-width" data-option-name="borderWidth" data-type="number" value="3" placeholder="라인 두께 입력">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-point-size" class="formLabel">마커 크기</label>
+                                                            <input type="text" id="line-point-size" class="form-control line-point-size" name="line-point-size" data-option-name="pointRadius" data-type="number" value="4" placeholder="마커 크기 입력">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-tension" class="formLabel">라인 형태</label>
+                                                            <select name="line-tension" id="line-tension" class="line-tension custom-select" data-option-name="tension" data-type="number">
+                                                                <option value="0" selected>직선</option>
+                                                                <option value="0.3">곡선</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-stepped" class="formLabel">계단 라인</label>
+                                                            <select name="line-stepped" id="line-stepped" class="line-stepped custom-select" data-option-name="stepped" data-type="boolean">
+                                                                <option value="false" selected>false</option>
+                                                                <option value="true">true</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_label" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="line-label-check" class="formLabel">레이블 표시</label>
+                                                            <select name="label-check" id="line-label-check" data-option-name="plugins.datalabels.display" data-type="boolean" class="label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-label-position" class="formLabel">레이블 위치</label>
+                                                            <select name="label-position" id="line-label-position" data-option-name="plugins.datalabels.anchor" data-type="string" class="label-position custom-select">
+                                                                <option value="end" selected>바깥쪽</option>
+                                                                <option value="start">안쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-label-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="line-label-font-size" class="form-control label-font-size" name="label-font-size" data-option-name="plugins.datalabels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-label-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="line-label-font-color" class="form-control label-font-color coloris instance2" name="label-font-color" data-option-name="plugins.datalabels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_legend" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="line-legend-check" class="formLabel">범례 표시</label>
+                                                            <select name="legend-check" id="line-legend-check" class="legend-check custom-select" data-option-name="plugins.legend.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-legend-position" class="formLabel">범례 위치</label>
+                                                            <select name="legend-position" id="line-legend-position" class="legend-position custom-select" data-option-name="plugins.legend.position" data-type="string">
+                                                                <option value="top" selected>위</option>
+                                                                <option value="bottom">아래</option>
+                                                                <option value="left">왼쪽</option>
+                                                                <option value="right">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-legend-style" class="formLabel">범례 스타일</label>
+                                                            <select name="legend-style" id="line-legend-style" class="legend-style custom-select" data-option-name="plugins.legend.labels.pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="line-legend-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="line-legend-font-size" class="form-control legend-font-size" name="legend-font-size" data-option-name="plugins.legend.labels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-legend-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="line-legend-font-color" class="form-control legend-font-color coloris instance2" name="legend-font-color" data-option-name="plugins.legend.labels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_tooltip" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="line-tooltip-check" class="formLabel">툴팁 표시</label>
+                                                            <select name="tooltip-check" id="line-tooltip-check" class="tooltip-check custom-select" data-option-name="plugins.tooltip.enabled" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-tooltip-bg-color" class="formLabel">배경 색</label>
+                                                            <input type="text" id="line-tooltip-bg-color" class="form-control tooltip-bg-color coloris instance2" name="tooltip-bg-color" data-option-name="plugins.tooltip.backgroundColor" data-type="string" value="#000000" placeholder="배경 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-tooltip-title-color" class="formLabel">제목 색</label>
+                                                            <input type="text" id="line-tooltip-title-color" class="form-control tooltip-title-color coloris instance2" name="tooltip-title-color" value="#ffffff" data-option-name="plugins.tooltip.titleColor" data-type="string" placeholder="제목 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-tooltip-content-color" class="formLabel">본문 색</label>
+                                                            <input type="text" id="line-tooltip-content-color" class="form-control tooltip-content-color coloris instance2" name="tooltip-content-color" value="#ffffff" data-option-name="plugins.tooltip.bodyColor" data-type="string" placeholder="본문 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Accordion-->
+                        </div>
+                        <div class="doughnutChartWrap chartWrap" style="display: none;">
+                            <!--Accordion-->
+                            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
+                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-1">
+                                        <div class="pt-3">
+                                            <div class="lineChart labelsWrap">
+                                                <div class="form-group doughnutLabels">
+                                                    <input type="text" id="doughnutLabelData" class="form-control doughnutLabelDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="dataSetsWrap">
+                                            <div class="dataWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 dataSets1">
+                                                <div class="dataSetsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>데이터</button></li>
+                                                        <li><button>옵션</button></li>
+                                                    </ul>
+                                                    <button style="display: none;" class="removeDataSet bg-primary border-light shadow-soft rounded" title="Delete DataSet">삭제</button>
+                                                    <div class="removeInfo"></div>
+                                                </div>
+                                                <div class="form-group dataSets_data">
+                                                    <input type="text" id="doughnutData1" class="form-control doughnutDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                                <div class="dataSets_option" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-categoryName" class="formLabel">카테고리</label>
+                                                            <input type="text" id="doughnut-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-color-theme" class="formLabel">차트 컬러 테마</label>
+                                                            <select name="doughnut-color-theme" id="doughnut-color-theme" class="doughnut-color-theme custom-select" data-option-name="backgroundColor">
+                                                                <option value="null">기본</option>
+                                                                <option value="#eff3ff,#c6dbef,#9ecae1,#6baed6,#4292c6,#2171b5,#084594">Blues</option>
+                                                                <option value="#edf8fb,#bfd3e6,#9ebcda,#8c96c6,#8856a7,#810f7c">Bu-Pu</option>
+                                                                <option value="#edf8fb,#ccece6,#99d8c9,#66c2a4,#2ca25f,#006d2c">Bu-Gr</option>
+                                                                <option value="#8c510a,#d8b365,#f6e8c3,#c7eae5,#5ab4ac,#01665e">Bu-BGr</option>
+                                                                <option value="#f7f7f7,#d9d9d9,#bdbdbd,#969696,#737373,#525252,#252525">Grays</option>
+                                                                <option value="#edf8e9,#c7e9c0,#a1d99b,#74c476,#41ab5d,#238b45,#005a32">Greens</option>
+                                                                <option value="#feedde,#fdd0a2,#fdae6b,#fd8d3c,#f16913,#d94801,#8c2d04">Oranges</option>
+                                                                <option value="#b35806,#f1a340,#fee0b6,#d8daeb,#998ec3,#542788">Or-Pu</option>
+                                                                <option value="#f2f0f7,#dadaeb,#bcbddc,#9e9ac8,#756bb1,#54278f">Purples</option>
+                                                                <option value="#f1eef6,#d0d1e6,#a6bddb,#74a9cf,#2b8cbe,#045a8d">Pu-Bu</option>
+                                                                <option value="#f1eef6,#d4b9da,#c994c7,#df65b0,#dd1c77,#980043">Pu-Rd</option>
+                                                                <option value="#f6eff7,#d0d1e6,#a6bddb,#67a9cf,#1c9099,#016c59">Pu-Gn</option>
+                                                                <option value="#762a83,#af8dc3,#e7d4e8,#d9f0d3,#7fbf7b,#1b7837">PR-Gn</option>
+                                                                <option value="#c51b7d,#e9a3c9,#fde0ef,#e6f5d0,#a1d76a,#4d9221">Pi-Gr</option>
+                                                                <option value="#fee5d9,#fcbba1,#fc9272,#fb6a4a,#ef3b2c,#cb181d,#99000d">Reds</option>
+                                                                <option value="#feebe2,#fcc5c0,#fa9fb5,#f768a1,#c51b8a,#7a0177">Rd-Pu</option>
+                                                                <option value="#b2182b,#ef8a62,#fddbc7,#d1e5f0,#67a9cf,#2166ac">Rd-Bu</option>
+                                                                <option value="#b2182b,#ef8a62,#fddbc7,#e0e0e0,#999999,#4d4d4d">Rd-Gy</option>
+                                                                <option value="#d73027,#fc8d59,#fee08b,#d9ef8b,#91cf60,#1a9850">Rd-Gr</option>
+                                                                <option value="#d73027,#fc8d59,#fee090,#e0f3f8,#91bfdb,#4575b4">Rd-Yl-Bu</option>
+                                                                <option value="#ffffcc,#d9f0a3,#addd8e,#78c679,#31a354,#006837">Yl-Gn</option>
+                                                                <option value="#ffffcc,#c7e9b4,#7fcdbb,#41b6c4,#2c7fb8,#253494">Yl-Bu</option>
+                                                                <option value="#ffffb2,#fed976,#feb24c,#fd8d3c,#f03b20,#bd0026">Yl-Rd</option>
+                                                                <option value="#ffffd4,#fee391,#fec44f,#fe9929,#d95f0e,#993404">Yl-Br</option>
+                                                                <option value="#d53e4f,#fc8d59,#fee08b,#e6f598,#99d594,#3288bd">Spectra</option>
+                                                                <option value="#7fc97f,#beaed4,#fdc086,#ffff99,#386cb0,#f0027f,#bf5b17,#666666">Accent</option>
+                                                                <option value="#1b9e77,#d95f02,#7570b3,#e7298a,#66a61e,#e6ab02,#a6761d,#666666">Dark</option>
+                                                                <option value="#a6cee3,#1f78b4,#b2df8a,#33a02c,#fb9a99,#e31a1c,#fdbf6f,#ff7f00,#cab2d6,#6a3d9a">Paired</option>
+                                                                <option value="#fbb4ae,#b3cde3,#ccebc5,#decbe4,#fed9a6,#ffffcc,#e5d8bd,#fddaec">Pastel1</option>
+                                                                <option value="#b3e2cd,#fdcdac,#cbd5e8,#f4cae4,#e6f5c9,#fff2ae,#f1e2cc,#cccccc">Pastel2</option>
+                                                                <option value="#e41a1c,#377eb8,#4daf4a,#984ea3,#ff7f00,#ffff33,#a65628,#f781bf">Set1</option>
+                                                                <option value="#66c2a5,#fc8d62,#8da0cb,#e78ac3,#a6d854,#ffd92f,#e5c494,#b3b3b3">Set2</option>
+                                                                <option value="#8dd3c7,#ffffb3,#bebada,#fb8072,#80b1d3,#fdb462,#b3de69,#fccde5,#d9d9d9,#bc80bd,#ccebc5,#ffed6f">Set3</option>
+                                                                <option value="#4E79A7,#F28E2B,#E15759,#76B7B2,#59A14F,#EDC948,#B07AA1,#FF9DA7,#9C755F,#BAB0AC">Color10</option>
+                                                                <option value="#b60a1c,#e39802,#309143,#e03531,#f0bd27,#51b364,#ff684c,#ffda66,#8ace7e">Traffic</option>
+                                                                <option value="#6388b4,#ffae34,#ef6f6a,#8cc2ca,#55ad89,#c3bc3f,#bb7693,#baa094,#a9b5ae,#767676">SuperfishelStone</option>
+                                                                <option value="#eb1e2c,#fd6f30,#f9a729,#f9d23c,#5fbb68,#64cdcc,#91dcea,#a4a4d5,#bbc9e5">JewelBright</option>
+                                                                <option value="#bfb202,#b9ca5d,#cf3e53,#f1788d,#00a2b3,#97cfd0,#f3a546,#f7c480">Summer</option>
+                                                                <option value="#90728f,#b9a0b4,#9d983d,#cecb76,#e15759,#ff9888,#6b6b6b,#bab2ae,#aa8780,#dab6af">Winter</option>
+                                                                <option value="#1ba3c6,#2cb5c0,#30bcad,#21B087,#33a65c,#57a337,#a2b627,#d5bb21,#f8b620,#f89217,#f06719,#e03426,#f64971,#fc719e,#eb73b3,#ce69be,#a26dc2,#7873c0,#4f7cba">HueCircle</option>
+                                                                <option value="#1f77b4,#ff7f0e,#2ca02c,#d62728,#9467bd,#8c564b,#e377c2,#7f7f7f,#bcbd22,#17becf">Classic10</option>
+                                                                <option value="#1f77b4,#aec7e8,#ff7f0e,#ffbb78,#2ca02c,#98df8a,#d62728,#ff9896,#9467bd,#c5b0d5,#8c564b,#c49c94,#e377c2,#f7b6d2,#7f7f7f,#c7c7c7,#bcbd22,#dbdb8d,#17becf,#9edae5">Classic20</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="addDataSet bg-primary border-light shadow-soft rounded mt-1" style="display: none;" title="Add DataSet">Add</button>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
+                                        <span class="h6 mb-0 font-weight-bold">OPTIONS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-3">
+                                        <div class="optionSetsWrap">
+                                            <div class="optionWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 optionSets">
+                                                <div class="optionsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>공통</button></li>
+                                                        <li><button>차트</button></li>
+                                                        <li><button>레이블</button></li>
+                                                        <li><button>범례</button></li>
+                                                        <li><button>툴팁</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="option_common">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free square">
+                                                            <label for="doughnut-common-bg-color" class="formLabel">화면 배경색</label>
+                                                            <input type="text" id="doughnut-common-bg-color" class="form-control common-bg-color coloris instance2" name="common-bg-color" value="#ffffff" data-option-name="plugins.customCanvasBackgroundColor.color" data-type="string" placeholder="화면 배경색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_chart" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-cutout-size" class="formLabel">도넛 두께</label>
+                                                            <input type="text" id="doughnut-cutout-size" class="form-control doughnut-cutout-size" name="doughnut-cutout-size" data-option-name="cutout" data-type="number" value="50" placeholder="도넛 두께 입력">
+                                                            <span class="unit">%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_label" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-label-check" class="formLabel">레이블 표시</label>
+                                                            <select name="label-check" id="doughnut-label-check" data-option-name="plugins.datalabels.display" data-type="boolean" class="label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label class="formLabel">레이블 정보</label>
+                                                            <div class="d-flex label-info">
+                                                                <div class="form-check square-check pr-05">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="doughnut-label-info-check" checked="">
+                                                                    <label class="form-check-label" for="doughnut-label-info-check">
+                                                                        레이블
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check square-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="doughnut-value-info-check" checked="">
+                                                                    <label class="form-check-label" for="doughnut-value-info-check">
+                                                                        값
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check square-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="doughnut-percent-info-check" checked="">
+                                                                    <label class="form-check-label" for="doughnut-percent-info-check">
+                                                                        퍼센트
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-label-position" class="formLabel">레이블 위치</label>
+                                                            <select name="label-position" id="doughnut-label-position" data-option-name="plugins.datalabels.anchor" data-type="string" class="label-position custom-select">
+                                                                <option value="center" selected>안쪽</option>
+                                                                <option value="end">바깥쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-label-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="doughnut-label-font-size" class="form-control label-font-size" name="label-font-size" data-option-name="plugins.datalabels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="doughnut-label-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="doughnut-label-font-color" class="form-control label-font-color coloris instance2" name="label-font-color" data-option-name="plugins.datalabels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_legend" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-legend-check" class="formLabel">범례 표시</label>
+                                                            <select name="legend-check" id="doughnut-legend-check" class="legend-check custom-select" data-option-name="plugins.legend.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-legend-position" class="formLabel">범례 위치</label>
+                                                            <select name="legend-position" id="doughnut-legend-position" class="legend-position custom-select" data-option-name="plugins.legend.position" data-type="string">
+                                                                <option value="top" selected>위</option>
+                                                                <option value="bottom">아래</option>
+                                                                <option value="left">왼쪽</option>
+                                                                <option value="right">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-legend-style" class="formLabel">범례 스타일</label>
+                                                            <select name="legend-style" id="doughnut-legend-style" class="legend-style custom-select" data-option-name="plugins.legend.labels.pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-legend-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="doughnut-legend-font-size" class="form-control legend-font-size" name="legend-font-size" data-option-name="plugins.legend.labels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="doughnut-legend-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="doughnut-legend-font-color" class="form-control legend-font-color coloris instance2" name="legend-font-color" data-option-name="plugins.legend.labels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_tooltip" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="doughnut-tooltip-check" class="formLabel">툴팁 표시</label>
+                                                            <select name="tooltip-check" id="doughnut-tooltip-check" class="tooltip-check custom-select" data-option-name="plugins.tooltip.enabled" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="doughnut-tooltip-bg-color" class="formLabel">배경 색</label>
+                                                            <input type="text" id="doughnut-tooltip-bg-color" class="form-control tooltip-bg-color coloris instance2" name="tooltip-bg-color" data-option-name="plugins.tooltip.backgroundColor" data-type="string" value="#000000" placeholder="배경 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="doughnut-tooltip-title-color" class="formLabel">제목 색</label>
+                                                            <input type="text" id="doughnut-tooltip-title-color" class="form-control tooltip-title-color coloris instance2" name="tooltip-title-color" value="#ffffff" data-option-name="plugins.tooltip.titleColor" data-type="string" placeholder="제목 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="doughnut-tooltip-content-color" class="formLabel">본문 색</label>
+                                                            <input type="text" id="doughnut-tooltip-content-color" class="form-control tooltip-content-color coloris instance2" name="tooltip-content-color" value="#ffffff" data-option-name="plugins.tooltip.bodyColor" data-type="string" placeholder="본문 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Accordion-->
+                        </div>
+                        <div class="polarAreaChartWrap chartWrap" style="display: none;">
+                            <!--Accordion-->
+                            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
+                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-1">
+                                        <div class="pt-3">
+                                            <div class="polarAreaChart labelsWrap">
+                                                <div class="form-group polarAreaLabels">
+                                                    <input type="text" id="polarAreaLabelData" class="form-control polarAreaLabelDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="dataSetsWrap">
+                                            <div class="dataWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 dataSets1">
+                                                <div class="dataSetsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>데이터</button></li>
+                                                        <li><button>옵션</button></li>
+                                                    </ul>
+                                                    <button style="display: none;" class="removeDataSet bg-primary border-light shadow-soft rounded" title="Delete DataSet">삭제</button>
+                                                    <div class="removeInfo"></div>
+                                                </div>
+                                                <div class="form-group dataSets_data">
+                                                    <input type="text" id="polarAreaData1" class="form-control polarAreaDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                                <div class="dataSets_option" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-categoryName" class="formLabel">카테고리</label>
+                                                            <input type="text" id="polarArea-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-color-theme" class="formLabel">차트 컬러 테마</label>
+                                                            <select name="polarArea-color-theme" id="polarArea-color-theme" class="polarArea-color-theme custom-select" data-option-name="backgroundColor">
+                                                                <option value="null">기본</option>
+                                                                <option value="#eff3ff,#c6dbef,#9ecae1,#6baed6,#4292c6,#2171b5,#084594">Blues</option>
+                                                                <option value="#edf8fb,#bfd3e6,#9ebcda,#8c96c6,#8856a7,#810f7c">Bu-Pu</option>
+                                                                <option value="#edf8fb,#ccece6,#99d8c9,#66c2a4,#2ca25f,#006d2c">Bu-Gr</option>
+                                                                <option value="#8c510a,#d8b365,#f6e8c3,#c7eae5,#5ab4ac,#01665e">Bu-BGr</option>
+                                                                <option value="#f7f7f7,#d9d9d9,#bdbdbd,#969696,#737373,#525252,#252525">Grays</option>
+                                                                <option value="#edf8e9,#c7e9c0,#a1d99b,#74c476,#41ab5d,#238b45,#005a32">Greens</option>
+                                                                <option value="#feedde,#fdd0a2,#fdae6b,#fd8d3c,#f16913,#d94801,#8c2d04">Oranges</option>
+                                                                <option value="#b35806,#f1a340,#fee0b6,#d8daeb,#998ec3,#542788">Or-Pu</option>
+                                                                <option value="#f2f0f7,#dadaeb,#bcbddc,#9e9ac8,#756bb1,#54278f">Purples</option>
+                                                                <option value="#f1eef6,#d0d1e6,#a6bddb,#74a9cf,#2b8cbe,#045a8d">Pu-Bu</option>
+                                                                <option value="#f1eef6,#d4b9da,#c994c7,#df65b0,#dd1c77,#980043">Pu-Rd</option>
+                                                                <option value="#f6eff7,#d0d1e6,#a6bddb,#67a9cf,#1c9099,#016c59">Pu-Gn</option>
+                                                                <option value="#762a83,#af8dc3,#e7d4e8,#d9f0d3,#7fbf7b,#1b7837">PR-Gn</option>
+                                                                <option value="#c51b7d,#e9a3c9,#fde0ef,#e6f5d0,#a1d76a,#4d9221">Pi-Gr</option>
+                                                                <option value="#fee5d9,#fcbba1,#fc9272,#fb6a4a,#ef3b2c,#cb181d,#99000d">Reds</option>
+                                                                <option value="#feebe2,#fcc5c0,#fa9fb5,#f768a1,#c51b8a,#7a0177">Rd-Pu</option>
+                                                                <option value="#b2182b,#ef8a62,#fddbc7,#d1e5f0,#67a9cf,#2166ac">Rd-Bu</option>
+                                                                <option value="#b2182b,#ef8a62,#fddbc7,#e0e0e0,#999999,#4d4d4d">Rd-Gy</option>
+                                                                <option value="#d73027,#fc8d59,#fee08b,#d9ef8b,#91cf60,#1a9850">Rd-Gr</option>
+                                                                <option value="#d73027,#fc8d59,#fee090,#e0f3f8,#91bfdb,#4575b4">Rd-Yl-Bu</option>
+                                                                <option value="#ffffcc,#d9f0a3,#addd8e,#78c679,#31a354,#006837">Yl-Gn</option>
+                                                                <option value="#ffffcc,#c7e9b4,#7fcdbb,#41b6c4,#2c7fb8,#253494">Yl-Bu</option>
+                                                                <option value="#ffffb2,#fed976,#feb24c,#fd8d3c,#f03b20,#bd0026">Yl-Rd</option>
+                                                                <option value="#ffffd4,#fee391,#fec44f,#fe9929,#d95f0e,#993404">Yl-Br</option>
+                                                                <option value="#d53e4f,#fc8d59,#fee08b,#e6f598,#99d594,#3288bd">Spectra</option>
+                                                                <option value="#7fc97f,#beaed4,#fdc086,#ffff99,#386cb0,#f0027f,#bf5b17,#666666">Accent</option>
+                                                                <option value="#1b9e77,#d95f02,#7570b3,#e7298a,#66a61e,#e6ab02,#a6761d,#666666">Dark</option>
+                                                                <option value="#a6cee3,#1f78b4,#b2df8a,#33a02c,#fb9a99,#e31a1c,#fdbf6f,#ff7f00,#cab2d6,#6a3d9a">Paired</option>
+                                                                <option value="#fbb4ae,#b3cde3,#ccebc5,#decbe4,#fed9a6,#ffffcc,#e5d8bd,#fddaec">Pastel1</option>
+                                                                <option value="#b3e2cd,#fdcdac,#cbd5e8,#f4cae4,#e6f5c9,#fff2ae,#f1e2cc,#cccccc">Pastel2</option>
+                                                                <option value="#e41a1c,#377eb8,#4daf4a,#984ea3,#ff7f00,#ffff33,#a65628,#f781bf">Set1</option>
+                                                                <option value="#66c2a5,#fc8d62,#8da0cb,#e78ac3,#a6d854,#ffd92f,#e5c494,#b3b3b3">Set2</option>
+                                                                <option value="#8dd3c7,#ffffb3,#bebada,#fb8072,#80b1d3,#fdb462,#b3de69,#fccde5,#d9d9d9,#bc80bd,#ccebc5,#ffed6f">Set3</option>
+                                                                <option value="#4E79A7,#F28E2B,#E15759,#76B7B2,#59A14F,#EDC948,#B07AA1,#FF9DA7,#9C755F,#BAB0AC">Color10</option>
+                                                                <option value="#b60a1c,#e39802,#309143,#e03531,#f0bd27,#51b364,#ff684c,#ffda66,#8ace7e">Traffic</option>
+                                                                <option value="#6388b4,#ffae34,#ef6f6a,#8cc2ca,#55ad89,#c3bc3f,#bb7693,#baa094,#a9b5ae,#767676">SuperfishelStone</option>
+                                                                <option value="#eb1e2c,#fd6f30,#f9a729,#f9d23c,#5fbb68,#64cdcc,#91dcea,#a4a4d5,#bbc9e5">JewelBright</option>
+                                                                <option value="#bfb202,#b9ca5d,#cf3e53,#f1788d,#00a2b3,#97cfd0,#f3a546,#f7c480">Summer</option>
+                                                                <option value="#90728f,#b9a0b4,#9d983d,#cecb76,#e15759,#ff9888,#6b6b6b,#bab2ae,#aa8780,#dab6af">Winter</option>
+                                                                <option value="#1ba3c6,#2cb5c0,#30bcad,#21B087,#33a65c,#57a337,#a2b627,#d5bb21,#f8b620,#f89217,#f06719,#e03426,#f64971,#fc719e,#eb73b3,#ce69be,#a26dc2,#7873c0,#4f7cba">HueCircle</option>
+                                                                <option value="#1f77b4,#ff7f0e,#2ca02c,#d62728,#9467bd,#8c564b,#e377c2,#7f7f7f,#bcbd22,#17becf">Classic10</option>
+                                                                <option value="#1f77b4,#aec7e8,#ff7f0e,#ffbb78,#2ca02c,#98df8a,#d62728,#ff9896,#9467bd,#c5b0d5,#8c564b,#c49c94,#e377c2,#f7b6d2,#7f7f7f,#c7c7c7,#bcbd22,#dbdb8d,#17becf,#9edae5">Classic20</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="addDataSet bg-primary border-light shadow-soft rounded mt-1" style="display: none;" title="Add DataSet">Add</button>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
+                                        <span class="h6 mb-0 font-weight-bold">OPTIONS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-3">
+                                        <div class="optionSetsWrap">
+                                            <div class="optionWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 optionSets">
+                                                <div class="optionsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>공통</button></li>
+                                                        <li><button>차트</button></li>
+                                                        <li><button>레이블</button></li>
+                                                        <li><button>범례</button></li>
+                                                        <li><button>툴팁</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="option_common">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-axis-show" class="formLabel">축 표시</label>
+                                                            <select name="polarArea-axis-show" id="polarArea-axis-show" class="polarArea-axis-show custom-select" data-option-name="scales.r.pointLabels.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-pointLabels-font-size" class="formLabel">축 글꼴 크기</label>
+                                                            <input type="text" id="polarArea-pointLabels-font-size" class="form-control polarArea-pointLabels-font-size" name="polarArea-pointLabels-font-size" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="polarArea-common-bg-color" class="formLabel">화면 배경색</label>
+                                                            <input type="text" id="polarArea-common-bg-color" class="form-control common-bg-color coloris instance2" name="common-bg-color" value="#ffffff" data-option-name="plugins.customCanvasBackgroundColor.color" data-type="string" placeholder="화면 배경색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_chart" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-circular" class="formLabel">외각 설정</label>
+                                                            <select name="polarArea-circular" id="polarArea-circular" data-option-name="circular" data-type="boolean" class="polarArea-circular custom-select">
+                                                                <option value="true" selected>곡선</option>
+                                                                <option value="false">직선</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_label" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-label-check" class="formLabel">레이블 표시</label>
+                                                            <select name="label-check" id="polarArea-label-check" data-option-name="plugins.datalabels.display" data-type="boolean" class="label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label class="formLabel">레이블 정보</label>
+                                                            <div class="d-flex label-info">
+                                                                <div class="form-check square-check pr-05">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="polarArea-label-info-check">
+                                                                    <label class="form-check-label" for="polarArea-label-info-check">
+                                                                        레이블
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check square-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="polarArea-value-info-check" checked="">
+                                                                    <label class="form-check-label" for="polarArea-value-info-check">
+                                                                        값
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check square-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="polarArea-percent-info-check" checked="">
+                                                                    <label class="form-check-label" for="polarArea-percent-info-check">
+                                                                        퍼센트
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-label-position" class="formLabel">레이블 위치</label>
+                                                            <select name="label-position" id="polarArea-label-position" data-option-name="plugins.datalabels.anchor" data-type="string" class="label-position custom-select">
+                                                                <option value="center" selected>안쪽</option>
+                                                                <option value="end">바깥쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-label-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="polarArea-label-font-size" class="form-control label-font-size" name="label-font-size" data-option-name="plugins.datalabels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="polarArea-label-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="polarArea-label-font-color" class="form-control label-font-color coloris instance2" name="label-font-color" data-option-name="plugins.datalabels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_legend" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-legend-check" class="formLabel">범례 표시</label>
+                                                            <select name="legend-check" id="polarArea-legend-check" class="legend-check custom-select" data-option-name="plugins.legend.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-legend-position" class="formLabel">범례 위치</label>
+                                                            <select name="legend-position" id="polarArea-legend-position" class="legend-position custom-select" data-option-name="plugins.legend.position" data-type="string">
+                                                                <option value="top" selected>위</option>
+                                                                <option value="bottom">아래</option>
+                                                                <option value="left">왼쪽</option>
+                                                                <option value="right">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-legend-style" class="formLabel">범례 스타일</label>
+                                                            <select name="legend-style" id="polarArea-legend-style" class="legend-style custom-select" data-option-name="plugins.legend.labels.pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-legend-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="polarArea-legend-font-size" class="form-control legend-font-size" name="legend-font-size" data-option-name="plugins.legend.labels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="polarArea-legend-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="polarArea-legend-font-color" class="form-control legend-font-color coloris instance2" name="legend-font-color" data-option-name="plugins.legend.labels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_tooltip" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-tooltip-check" class="formLabel">툴팁 표시</label>
+                                                            <select name="tooltip-check" id="polarArea-tooltip-check" class="tooltip-check custom-select" data-option-name="plugins.tooltip.enabled" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="polarArea-tooltip-bg-color" class="formLabel">배경 색</label>
+                                                            <input type="text" id="polarArea-tooltip-bg-color" class="form-control tooltip-bg-color coloris instance2" name="tooltip-bg-color" data-option-name="plugins.tooltip.backgroundColor" data-type="string" value="#000000" placeholder="배경 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="polarArea-tooltip-title-color" class="formLabel">제목 색</label>
+                                                            <input type="text" id="polarArea-tooltip-title-color" class="form-control tooltip-title-color coloris instance2" name="tooltip-title-color" value="#ffffff" data-option-name="plugins.tooltip.titleColor" data-type="string" placeholder="제목 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="polarArea-tooltip-content-color" class="formLabel">본문 색</label>
+                                                            <input type="text" id="polarArea-tooltip-content-color" class="form-control tooltip-content-color coloris instance2" name="tooltip-content-color" value="#ffffff" data-option-name="plugins.tooltip.bodyColor" data-type="string" placeholder="본문 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Accordion-->
+                        </div>
+                        <div class="radarChartWrap chartWrap" style="display: none;">
+                            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
+                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-1">
+                                        <div class="pt-3">
+                                            <div class="radarChart labelsWrap">
+                                                <div class="form-group radarLabels">
+                                                    <input type="text" id="radarLabelData" class="form-control radarLabelDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="dataSetsWrap">
+                                            <div class="dataWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 dataSets1">
+                                                <div class="dataSetsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>데이터</button></li>
+                                                        <li><button>옵션</button></li>
+                                                    </ul>
+                                                    <button class="removeDataSet bg-primary border-light shadow-soft rounded" title="Delete DataSet">삭제</button>
+                                                    <div class="removeInfo"></div>
+                                                </div>
+                                                <div class="form-group dataSets_data">
+                                                    <input type="text" id="radarData1" class="form-control radarDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                                <div class="dataSets_option" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-categoryName" class="formLabel">카테고리</label>
+                                                            <input type="text" id="radar-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-bg-color" class="formLabel">차트 영역 색</label>
+                                                            <input type="text" id="radar-bg-color" class="form-control chartColor coloris instance2" name="chartColor" data-option-name="backgroundColor" data-type="string" placeholder="차트 영역 색">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-line-color" class="formLabel">차트 라인 색</label>
+                                                            <input type="text" id="radar-line-color" class="form-control chartBorderColor coloris instance2" name="chartBorderColor" data-option-name="borderColor" data-type="string" placeholder="차트 라인 색">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-point-color" class="formLabel">차트 마커 색</label>
+                                                            <input type="text" id="radar-point-color" class="form-control chartPointColor coloris instance2" name="chartPointColor" data-option-name="pointBackgroundColor" data-type="string" placeholder="차트 마커 색">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radarAreaFill" class="formLabel">차트 영역 채우기</label>
+                                                            <select name="radarAreaFill" id="radarAreaFill" class="radarAreaFillSelect custom-select" data-option-name="fill">
+                                                                <option value="true">true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radarLineStyle" class="formLabel">라인 스타일</label>
+                                                            <select name="radarLineStyle" id="radarLineStyle" class="radarLineStyleSelect custom-select" data-option-name="borderDash">
+                                                                <option value="0,0">직선</option>
+                                                                <option value="3,3">점선</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radarMarkerStyle" class="formLabel">마커 스타일</label>
+                                                            <select name="radarMarkerStyle" id="radarMarkerStyle" class="radarMarkerStyleSelect custom-select" data-option-name="pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="addDataSet bg-primary border-light shadow-soft rounded mt-1" title="Add DataSet">Add</button>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
+                                        <span class="h6 mb-0 font-weight-bold">OPTIONS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-3">
+                                        <div class="optionSetsWrap">
+                                            <div class="optionWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 optionSets">
+                                                <div class="optionsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>공통</button></li>
+                                                        <li><button>차트</button></li>
+                                                        <li><button>레이블</button></li>
+                                                        <li><button>범례</button></li>
+                                                        <li><button>툴팁</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="option_common">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-axis-show" class="formLabel">축 표시</label>
+                                                            <select name="radar-axis-show" id="radar-axis-show" class="radar-axis-show custom-select" data-option-name="scales.r.pointLabels.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-pointLabels-font-size" class="formLabel">축 글꼴 크기</label>
+                                                            <input type="text" id="radar-pointLabels-font-size" class="form-control radar-pointLabels-font-size" name="radar-pointLabels-font-size" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-suggested-min" class="formLabel">축 범위 최소값</label>
+                                                            <input type="text" id="radar-suggested-min" class="form-control radar-suggested-min" name="radar-suggested-min" data-option-name="scales.r.suggestedMin" data-type="number" placeholder="축 범위 최소값">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-suggested-max" class="formLabel">축 범위 최대값</label>
+                                                            <input type="text" id="radar-suggested-max" class="form-control radar-suggested-max" name="radar-suggested-max" data-option-name="scales.r.suggestedMax" data-type="number" placeholder="축 범위 최대값">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-common-bg-color" class="formLabel">화면 배경색</label>
+                                                            <input type="text" id="radar-common-bg-color" class="form-control common-bg-color coloris instance2" name="common-bg-color" value="#ffffff" data-option-name="plugins.customCanvasBackgroundColor.color" data-type="string" placeholder="화면 배경색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_chart" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-border-width" class="formLabel">라인 두께</label>
+                                                            <input type="text" id="radar-border-width" class="form-control radar-border-width" name="radar-border-width" data-option-name="borderWidth" data-type="number" value="3" placeholder="라인 두께 입력">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-point-size" class="formLabel">마커 크기</label>
+                                                            <input type="text" id="radar-point-size" class="form-control radar-point-size" name="radar-point-size" data-option-name="pointRadius" data-type="number" value="4" placeholder="마커 크기 입력">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-tension" class="formLabel">라인 형태</label>
+                                                            <select name="radar-tension" id="radar-tension" class="radar-tension custom-select" data-option-name="tension" data-type="number">
+                                                                <option value="0" selected>직선</option>
+                                                                <option value="0.3">곡선</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_label" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-label-check" class="formLabel">레이블 표시</label>
+                                                            <select name="label-check" id="radar-label-check" data-option-name="plugins.datalabels.display" data-type="boolean" class="label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free mx20">
+                                                            <label class="formLabel">레이블 정보</label>
+                                                            <div class="d-flex label-info">
+                                                                <div class="form-check square-check pr-05">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="radar-label-info-check">
+                                                                    <label class="form-check-label" for="radar-label-info-check">
+                                                                        레이블
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check square-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="radar-value-info-check" checked="">
+                                                                    <label class="form-check-label" for="radar-value-info-check">
+                                                                        값
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check square-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="radar-percent-info-check">
+                                                                    <label class="form-check-label" for="radar-percent-info-check">
+                                                                        퍼센트
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-range-label-check" class="formLabel">범위 레이블 표시</label>
+                                                            <select name="radar-range-label-check" id="radar-range-label-check" data-option-name="scales.r.ticks.display" data-type="boolean" class="radar-range-label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-label-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="radar-label-font-size" class="form-control label-font-size" name="label-font-size" data-option-name="plugins.datalabels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-label-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="radar-label-font-color" class="form-control label-font-color coloris instance2" name="label-font-color" data-option-name="plugins.datalabels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_legend" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-legend-check" class="formLabel">범례 표시</label>
+                                                            <select name="legend-check" id="radar-legend-check" class="legend-check custom-select" data-option-name="plugins.legend.display" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-legend-position" class="formLabel">범례 위치</label>
+                                                            <select name="legend-position" id="radar-legend-position" class="legend-position custom-select" data-option-name="plugins.legend.position" data-type="string">
+                                                                <option value="top" selected>위</option>
+                                                                <option value="bottom">아래</option>
+                                                                <option value="left">왼쪽</option>
+                                                                <option value="right">오른쪽</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-legend-style" class="formLabel">범례 스타일</label>
+                                                            <select name="legend-style" id="radar-legend-style" class="legend-style custom-select" data-option-name="plugins.legend.labels.pointStyle" data-type="string">
+                                                                <option value="circle" selected>원</option>
+                                                                <option value="rect">사각형</option>
+                                                                <option value="rectRounded">둥근사각형</option>
+                                                                <option value="rectRot">마름모</option>
+                                                                <option value="triangle">삼각형</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-legend-font-size" class="formLabel">글꼴 크기</label>
+                                                            <input type="text" id="radar-legend-font-size" class="form-control legend-font-size" name="legend-font-size" data-option-name="plugins.legend.labels.font.size" data-type="number" placeholder="글꼴 크기 입력" value="12">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-legend-font-color" class="formLabel">글꼴 색</label>
+                                                            <input type="text" id="radar-legend-font-color" class="form-control legend-font-color coloris instance2" name="legend-font-color" data-option-name="plugins.legend.labels.color" data-type="string" value="#000000" placeholder="글꼴 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option_tooltip" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="radar-tooltip-check" class="formLabel">툴팁 표시</label>
+                                                            <select name="tooltip-check" id="radar-tooltip-check" class="tooltip-check custom-select" data-option-name="plugins.tooltip.enabled" data-type="boolean">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-tooltip-bg-color" class="formLabel">배경 색</label>
+                                                            <input type="text" id="radar-tooltip-bg-color" class="form-control tooltip-bg-color coloris instance2" name="tooltip-bg-color" data-option-name="plugins.tooltip.backgroundColor" data-type="string" value="#000000" placeholder="배경 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-tooltip-title-color" class="formLabel">제목 색</label>
+                                                            <input type="text" id="radar-tooltip-title-color" class="form-control tooltip-title-color coloris instance2" name="tooltip-title-color" value="#ffffff" data-option-name="plugins.tooltip.titleColor" data-type="string" placeholder="제목 색 입력">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-tooltip-content-color" class="formLabel">본문 색</label>
+                                                            <input type="text" id="radar-tooltip-content-color" class="form-control tooltip-content-color coloris instance2" name="tooltip-content-color" value="#ffffff" data-option-name="plugins.tooltip.bodyColor" data-type="string" placeholder="본문 색 입력">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableChartWrap chartWrap" style="display: none;">
+                            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                                <div class="card card-sm card-body bg-primary border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                    </a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="dataSetsWrap">
+                                            <div class="dataWrap bg-primary border-light shadow-inset rounded pa-1 mt-1 dataSets1">
+                                                <div class="dataSetsMenu mb-1">
+                                                    <ul>
+                                                        <li class="on"><button>데이터</button></li>
+                                                        <li><button>옵션</button></li>
+                                                    </ul>
+                                                    <button style="display: none;" class="removeDataSet bg-primary border-light shadow-soft rounded" title="Delete DataSet">삭제</button>
+                                                    <div class="removeInfo"></div>
+                                                </div>
+                                                <div class="form-group dataSets_data">
+                                                    <input type="text" id="tableData1" class="form-control tableDataInput" placeholder="Enter only String Data" />
+                                                </div>
+                                                <div class="dataSets_option" id="tableOption" style="display: none;">
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free">
+                                                            <label for="table-header-style" class="formLabel">Header 선택</label>
+                                                            <select name="table-header-style" unit="" id="table-header-style" class="table-header-style custom-select">
+                                                                <option value="Column">Column</option>
+                                                                <option value="Row">Row</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="table-border-color" class="formLabel">라인 색</label>
+                                                            <input type="text" id="table-border-color" class="form-control table-border-color coloris instance2" name="tableChart-border-color" unit="" value="#cccccc" placeholder="라인 색">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free square">
+                                                            <label for="table-th-bg" class="formLabel">Header 배경 색</label>
+                                                            <input type="text" id="table-th-bg" class="form-control table-th-bg coloris instance2" name="tableChart-th-bg" unit="" value="#eeeeee" placeholder="#ffffff / rgb(255,255,255) / rgba(255,255,255,0.5)">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="table-th-color" class="formLabel">Header 글씨 색</label>
+                                                            <input type="text" id="table-th-color" class="form-control table-th-color coloris instance2" name="tableChart-th-color" unit="" value="#000000" placeholder="#000000 / rgb(0,0,0) / rgba(0,0,0,0.5)">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="table-th-fontSize" class="formLabel">Header 글씨 크기</label>
+                                                            <input type="text" id="table-th-fontSize" class="form-control table-th-fontSize" name="tableChart-th-fontSize" value="15" placeholder="14px" unit="px">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="table-th-align" class="formLabel">Header 글씨 정렬</label>
+                                                            <select name="tableChart-th-align" unit="" id="table-th-align" class="table-th-align custom-select" >
+                                                                <option value="left">Left</option>
+                                                                <option value="center">Center</option>
+                                                                <option value="right">Right</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="table-th-padding" class="formLabel">Header 여백</label>
+                                                            <input type="text" id="table-th-padding" class="form-control table-th-padding" name="tableChart-th-padding" unit="" value="10px 10px 10px 10px" placeholder="top right bottom left">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex border-light shadow-soft rounded">
+                                                        <div class="form-group col-free square">
+                                                            <label for="table-td-bg" class="formLabel">Body 배경색</label>
+                                                            <input type="text" id="table-td-bg" class="form-control table-td-bg coloris instance2" name="tableChart-td-bg" unit="" value="#ffffff" placeholder="#ffffff / rgb(255,255,255) / rgba(255,255,255,0.5)">
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="table-td-color" class="formLabel">Body 글씨색</label>
+                                                            <input type="text" id="table-td-color" class="form-control table-td-color coloris instance2" name="tableChart-td-color" unit="" value="#000000" placeholder="#000000 / rgb(0,0,0) / rgba(0,0,0,0.5)">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="table-td-fontSize" class="formLabel">Body 글씨크기</label>
+                                                            <input type="text" id="table-td-fontSize" class="form-control table-td-fontSize" name="tableChart-td-fontSize" value="14" placeholder="14px" unit="px">
+                                                            <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="table-td-align" class="formLabel">Body 글씨 정렬</label>
+                                                            <select name="tableChart-td-align" unit="" id="table-td-align" class="table-td-align custom-select">
+                                                                <option value="left">Left</option>
+                                                                <option value="center">Center</option>
+                                                                <option value="right">Right</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="table-td-padding" class="formLabel">Body 여백</label>
+                                                            <input type="text" id="table-td-padding" class="form-control table-td-padding" name="tableChart-td-padding" value="10px 10px 10px 10px" unit="" placeholder="top right bottom left">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="addDataSet bg-primary border-light shadow-soft rounded mt-1" style="display: none;" title="Add DataSet">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popChartWrap chartWrap">
+                        <div class="titleWrap">
+                            <div class="title">chart preview</div><button class="closeBtn"><span>닫기</span></button>
+                        </div>
+                        <div class="popChart">
+                            <div class="chartPreviewWrap"><canvas id="chartPreview"></canvas></div>
+                            <div class="tablePreviewWrap" style="display: none;"></div>
+                        </div>
+                    </div>
+                    <div class="btnWrap mt-1">
+                        <span class="errorInfo"></span>
+                        <button type="button" class="prevChart bg-primary border-light shadow-soft rounded">차트 미리보기</button>
+                        <button type="button" class="optionSave bg-primary border-light shadow-soft rounded">옵션 저장하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-result" tabindex="-1" role="dialog" aria-labelledby="madal-result" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="h6 modal-title mb-0" id="modal-title-default">Code Generation</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--Accordion-->
+                        <div class="accordion shadow-soft rounded" id="accordionExample1">
+                            <div class="card card-sm card-body bg-primary border-light mb-0">
+                                <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
+                                    <span class="h6 mb-0 font-weight-bold">TEXT AREA</span>
+                                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                </a>
+                                <div class="collapse" id="panel-1">
+                                    <div class="pt-3">
+                                        <span class="copy">
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200"><path class="cls-1" d="M75,80H29.31a5,5,0,0,1-3.53-8.54L71.46,25.78A5,5,0,0,1,80,29.31V75A5,5,0,0,1,75,80ZM41.38,70H70V41.38Z"/><path class="cls-1" d="M105.85,155H29.31a5,5,0,0,1-5-5V75a5,5,0,0,1,10,0v70h71.54A14.17,14.17,0,0,0,120,130.85V34.31H75a5,5,0,1,1,0-10h50a5,5,0,0,1,5,5V130.85A24.17,24.17,0,0,1,105.85,155Z"/><path class="cls-1" d="M151.54,175.69H75a5,5,0,0,1-5-5V150a5,5,0,0,1,10,0v15.69h71.54a14.17,14.17,0,0,0,14.15-14.15V54.81H125a5,5,0,0,1,0-10h45.69a5,5,0,0,1,5,5V151.54A24.17,24.17,0,0,1,151.54,175.69Z"/><path class="cls-1" d="M100,105H50a5,5,0,0,1,0-10h50a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M100,129.91H50a5,5,0,0,1,0-10h50a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M150,129.91H125a5,5,0,0,1,0-10h25a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M150,105H125a5,5,0,0,1,0-10h25a5,5,0,0,1,0,10Z"/></svg>
+                                        </span>
+                                        <pre class="mb-0"><code class="htmlResult">
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-sm card-body bg-primary border-light mb-0 jsPluginWrap">
+                                <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+                                    <span class="h6 mb-0 font-weight-bold">JAVASCRIPT(PlugIn)</span>
+                                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                </a>
+                                <div class="collapse" id="panel-2">
+                                    <div class="pt-3">
+                                        <span class="copy">
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200"><path class="cls-1" d="M75,80H29.31a5,5,0,0,1-3.53-8.54L71.46,25.78A5,5,0,0,1,80,29.31V75A5,5,0,0,1,75,80ZM41.38,70H70V41.38Z"/><path class="cls-1" d="M105.85,155H29.31a5,5,0,0,1-5-5V75a5,5,0,0,1,10,0v70h71.54A14.17,14.17,0,0,0,120,130.85V34.31H75a5,5,0,1,1,0-10h50a5,5,0,0,1,5,5V130.85A24.17,24.17,0,0,1,105.85,155Z"/><path class="cls-1" d="M151.54,175.69H75a5,5,0,0,1-5-5V150a5,5,0,0,1,10,0v15.69h71.54a14.17,14.17,0,0,0,14.15-14.15V54.81H125a5,5,0,0,1,0-10h45.69a5,5,0,0,1,5,5V151.54A24.17,24.17,0,0,1,151.54,175.69Z"/><path class="cls-1" d="M100,105H50a5,5,0,0,1,0-10h50a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M100,129.91H50a5,5,0,0,1,0-10h50a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M150,129.91H125a5,5,0,0,1,0-10h25a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M150,105H125a5,5,0,0,1,0-10h25a5,5,0,0,1,0,10Z"/></svg>
+                                        </span>
+                                        <pre class="mb-0"><code class="jsPlugin">
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-sm card-body bg-primary border-light mb-0">
+                                <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
+                                    <span class="h6 mb-0 font-weight-bold">JAVASCRIPT</span>
+                                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
+                                </a>
+                                <div class="collapse" id="panel-3">
+                                    <div class="pt-3">
+                                        <span class="copy">
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 200 200"><path class="cls-1" d="M75,80H29.31a5,5,0,0,1-3.53-8.54L71.46,25.78A5,5,0,0,1,80,29.31V75A5,5,0,0,1,75,80ZM41.38,70H70V41.38Z"/><path class="cls-1" d="M105.85,155H29.31a5,5,0,0,1-5-5V75a5,5,0,0,1,10,0v70h71.54A14.17,14.17,0,0,0,120,130.85V34.31H75a5,5,0,1,1,0-10h50a5,5,0,0,1,5,5V130.85A24.17,24.17,0,0,1,105.85,155Z"/><path class="cls-1" d="M151.54,175.69H75a5,5,0,0,1-5-5V150a5,5,0,0,1,10,0v15.69h71.54a14.17,14.17,0,0,0,14.15-14.15V54.81H125a5,5,0,0,1,0-10h45.69a5,5,0,0,1,5,5V151.54A24.17,24.17,0,0,1,151.54,175.69Z"/><path class="cls-1" d="M100,105H50a5,5,0,0,1,0-10h50a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M100,129.91H50a5,5,0,0,1,0-10h50a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M150,129.91H125a5,5,0,0,1,0-10h25a5,5,0,0,1,0,10Z"/><path class="cls-1" d="M150,105H125a5,5,0,0,1,0-10h25a5,5,0,0,1,0,10Z"/></svg>
+                                        </span>
+                                        <pre class="mb-0"><code class="jsResult">
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End of Accordion-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preview"></div>
+        <script src="./jquery-3.7.1.slim.min.js"></script>
+        <script src="./jquery-ui.min.js"></script>
+        <script src="./ckeditor.js"></script>
+        <script src="./lib.js"></script>
+        <script src="./chart.lib.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+        <script src="./coloris.min.js"></script>
+        <script src="uix.js"></script> 
+    </body>
+</html>
