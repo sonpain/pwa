@@ -1,5 +1,3 @@
-//import {jquery_ui, ckEdit_css}  from './lib.js';
-
 var popContData = '';
 var btnArea = 'text';
 var contentValue = "edit";
@@ -19,25 +17,26 @@ var jsPercentage = false;
 Coloris({
     el: '.coloris',
     swatches: [
-      '#264653',
-      '#2a9d8f',
-      '#e9c46a',
-      '#f4a261',
-      '#e76f51',
-      '#d62828',
-      '#023e8a',
-      '#0077b6',
-      '#0096c7',
-      '#00b4d8',
-      '#48cae4'
+        '#264653',
+        '#2a9d8f',
+        '#e9c46a',
+        '#f4a261',
+        '#e76f51',
+        '#d62828',
+        '#023e8a',
+        '#0077b6',
+        '#0096c7',
+        '#00b4d8',
+        '#48cae4'
     ]
 });
-  Coloris.setInstance('.instance2', { 
+    Coloris.setInstance('.instance2', { 
     theme: 'polaroid',
     formatToggle: true
 });
 
 // 함수 정의
+// 초기값 설정 함수
 function setInitialValues(id, value) {
     const element = document.getElementById(id);
     element.setAttribute('value', value);
@@ -80,11 +79,13 @@ function handleRadioButtonChange() {
     }
 }
 
+const popConts = document.querySelectorAll('.popupCon input[type="radio"]');
 const filterNum = document.querySelector('.filterNum');
 const editorReview = document.querySelector('.editorBtnWrap');
 const filterReview = document.querySelector('.previewBtnWrap');
 const optionReview = document.querySelector('.optionBtnWrap');
 const popHieghtInput = document.querySelector('.puHInput');
+
 function handlePopupContentChange() {
     if (this.checked) {
         if (this.value === 'option1') {
@@ -185,7 +186,6 @@ radioButtons.forEach(function(radioButton) {
     radioButton.addEventListener('change', handleRadioButtonChange);
 });
 
-const popConts = document.querySelectorAll('.popupCon input[type="radio"]');
 
 popConts.forEach(function(popCont) {
     popCont.addEventListener('change', handlePopupContentChange);
@@ -195,7 +195,6 @@ const checkBoxs = document.querySelectorAll('.custom-control-input');
 checkBoxs.forEach(function(checkbox) {
     checkbox.addEventListener('change', handleCheckboxChange);
 });
-
 
 // Javascript Chart Option Start ================================//
 //===============================================================//
@@ -267,9 +266,9 @@ function addDataSet(chartType) {
     clonedDataSet.querySelector('.barDataInput, .lineDataInput, .radarDataInput').id = newInputId; 
     clonedDataSet.querySelector('.barDataInput, .lineDataInput, .radarDataInput').value = '';
 
-
     clonedDataSet.querySelector('.categoryName').value = '';
     clonedDataSet.querySelector('.chartColor').value = '';
+
     if(clonedDataSet.querySelector('.chartBorderColor')){
         clonedDataSet.querySelector('.chartBorderColor').value = '';
     }
@@ -383,7 +382,6 @@ function getSelectedChartType() {
 }
 // chart type return function end========================================//
 
-
 document.querySelector('.prevChart').addEventListener('click', function() {
     const chartType = getSelectedChartType();
     const tablePreviewWrap = document.querySelector('.tablePreviewWrap');
@@ -463,7 +461,7 @@ function collectDatasets() {
     let datasets = Array.from(document.querySelectorAll(`${containerSelector} .dataWrap`)).map(dataWrap => {
 
         let dataset = {
-            label: dataWrap.querySelector('.categoryName')?.value,
+            label: dataWrap.querySelector('.categoryName')?.value || ' ',
             data: [],
             backgroundColor: dataWrap.querySelector('.chartColor')?.value
         };
@@ -511,7 +509,6 @@ function collectDatasets() {
             }
             dataset.usePointStyle = true;
             dataset.pointStyle = dataWrap.querySelector('.radarMarkerStyleSelect')?.value;
-            //delete dataset.backgroundColor; 
         }
 
         // 축 ID 설정
@@ -611,12 +608,16 @@ function collectUserOptions() {
     // 모든 데이터셋에서 사용하는 축 확인
     const allY2 = Array.from(chartContainer.querySelectorAll('.chartAxisSelect')).every(select => select.value === 'y2');
     const anyY2 = Array.from(chartContainer.querySelectorAll('.chartAxisSelect')).some(select => select.value === 'y2');
+
     // 글꼴 크기 입력 처리
     const fontSizeInput = chartContainer.querySelector('.common-font-size');
+    const fontColorInput = chartContainer.querySelector('.common-font-color');
+
     if (fontSizeInput && fontSizeInput.value) {
         const fontSize = parseFloat(fontSizeInput.value);
         setOptionValue(options, 'scales.x.ticks.font.size', fontSize);
         setOptionValue(options, 'scales.y1.ticks.font.size', fontSize);
+
         // 모든 데이터셋이 y2 축을 사용하면 y1 축을 숨김
         if (allY2) {
             setOptionValue(options, 'scales.y1.display', false);
@@ -624,20 +625,39 @@ function collectUserOptions() {
             setOptionValue(options, 'scales.y1.ticks.font.size', fontSize);
             setOptionValue(options, 'scales.y1.display', true);
         }
+
         // 스태킹 활성화되지 않았을 때만 y2 축 설정
         if (!isStacked) {
             const y2AxisSelected = Array.from(chartContainer.querySelectorAll('.chartAxisSelect')).some(select => select.value === 'y2');
             if (y2AxisSelected) {
                 setOptionValue(options, 'scales.y2.ticks.font.size', fontSize);
             }
-        }else{
+        } else {
             if (allY2) {
                 setOptionValue(options, 'scales.y1.position', "right");
                 setOptionValue(options, 'scales.y1.display', true);
             }
         }
     }
-    
+
+    // 축 색상 변경 처리
+    if (fontColorInput && fontColorInput.value) {
+        const fontColor = fontColorInput.value;
+        setOptionValue(options, 'scales.x.ticks.color', fontColor);
+        setOptionValue(options, 'scales.y1.ticks.color', fontColor);
+
+        if (!isStacked) {
+            const y2AxisSelected = Array.from(chartContainer.querySelectorAll('.chartAxisSelect')).some(select => select.value === 'y2');
+            if (y2AxisSelected) {
+                setOptionValue(options, 'scales.y2.ticks.color', fontColor);
+            }
+        } else {
+            if (allY2) {
+                setOptionValue(options, 'scales.y1.color', fontColor);
+            }
+        }
+    }
+
     // 차트 유형별 옵션 설정
     collectChartSpecificOptions(options, chartContainer, chartType);
 
@@ -646,14 +666,14 @@ function collectUserOptions() {
 
 function collectChartSpecificOptions(options, chartContainer, chartType) {
     if (chartType === 'bar') {
-        const barSettings = [
+        const barOptions = [
             { selector: '.bar-logic', optionName: 'indexAxis', transform: v => v },
             { selector: '.stacked-bar', optionName: 'scales.x.stacked', transform: v => v === 'true' },
             { selector: '.stacked-bar', optionName: 'scales.y1.stacked', transform: v => v === 'true' },
-            { selector: '.bar-width', optionName: 'scales.x.barPercentage', transform: v => parseFloat(v) / 100 },
+            { selector: '.bar-width', optionName: 'barPercentage', transform: v => parseFloat(v) / 100 },
             { selector: '.bar-border-radius', optionName: 'borderRadius', transform: v => parseFloat(v) }
         ];
-        barSettings.forEach(({ selector, optionName, transform }) => {
+        barOptions.forEach(({ selector, optionName, transform }) => {
             const element = chartContainer.querySelector(selector);
             if (element) {
                 setOptionValue(options, optionName, transform(element.value));
@@ -683,12 +703,16 @@ function collectChartSpecificOptions(options, chartContainer, chartType) {
             }
         });
     } else if (chartType === 'polarArea') {
-        const doughnutOptions = [
+        const polarAreaOptions = [
             { selector: '.polarArea-circular', optionName: 'circular', transform: v => v === 'true' },
             { selector: '.polarArea-axis-show', optionName: 'scales.r.pointLabels.display', transform: v => v === 'true' },
-            { selector: '.polarArea-pointLabels-font-size', optionName: 'scales.r.pointLabels.font.size', transform: v => parseFloat(v) }
+            { selector: '.polarArea-suggested-min', optionName: 'scales.r.suggestedMin', transform: v => v.trim() === '' ? null : parseFloat(v) },
+            { selector: '.polarArea-suggested-max', optionName: 'scales.r.suggestedMax', transform: v => v.trim() === '' ? null : parseFloat(v) },
+            { selector: '.polarArea-pointLabels-font-size', optionName: 'scales.r.pointLabels.font.size', transform: v => parseFloat(v) },
+            { selector: '.polarArea-pointLabels-font-color', optionName: 'scales.r.pointLabels.color', transform: v => v },
+            { selector: '.polarArea-range-label-check', optionName: 'scales.r.ticks.display', transform: v => v === 'true' }
         ];
-        doughnutOptions.forEach(({ selector, optionName, transform }) => {
+        polarAreaOptions.forEach(({ selector, optionName, transform }) => {
             const element = chartContainer.querySelector(selector);
             if (element) {
                 setOptionValue(options, optionName, transform(element.value));
@@ -703,6 +727,7 @@ function collectChartSpecificOptions(options, chartContainer, chartType) {
             { selector: '.radar-point-size', optionName: 'pointRadius', transform: v => parseFloat(v) },
             { selector: '.radar-tension', optionName: 'tension', transform: v => parseFloat(v) },
             { selector: '.radar-pointLabels-font-size', optionName: 'scales.r.pointLabels.font.size', transform: v => parseFloat(v) },
+            { selector: '.radar-pointLabels-font-color', optionName: 'scales.r.pointLabels.color', transform: v => v },
             { selector: '.radar-range-label-check', optionName: 'scales.r.ticks.display', transform: v => v === 'true' }
         ];
         radarOptions.forEach(({ selector, optionName, transform }) => {
@@ -751,14 +776,14 @@ function generateChartOptions(userOptions) {
     let defaultOptions = {
         responsive: true,
         maintainAspectRatio: true,
-        spanGaps: false,
-        layout: { padding: { top: 5, bottom: 15, left: 15, right: 15 } },
+        spanGaps: true,
+        layout: { padding: { top: 5, bottom: 10, left: 20, right: 20 } },
         plugins: {
             legend: { display: true, position: "top", labels: { usePointStyle: true, pointStyle: 'circle' } },
             datalabels: { 
                 display: "auto", 
                 formatter: function(value,context){
-                    return value;
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 },
                 anchor: 'center', 
                 align: 'center', 
@@ -774,8 +799,20 @@ function generateChartOptions(userOptions) {
             barPercentage: 0.9,
             borderRadius: 3,
             scales: {
-                x: { position: "bottom", offset : true, grid: { display: true } },
+                x: { position: "bottom", offset : true, grid: { display: true }},
                 y1: { position: "left", grid: { display: false } }
+            },
+            plugins: {
+                legend: { display: true, position: "top", labels: { usePointStyle: true, pointStyle: 'circle' } },
+                datalabels: { 
+                    display: "auto", 
+                    formatter: function(value,context){
+                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    },
+                    anchor: 'center', 
+                    align: 'center', 
+                    font: { size: 12 }
+                }
             }
         });
     } else if (userOptions.type === 'line') {
@@ -787,6 +824,18 @@ function generateChartOptions(userOptions) {
             scales: {
                 x: { position: "bottom", offset : true, grid: { display: true } },
                 y1: { position: "left", grid: { display: false } }
+            },
+            plugins: {
+                legend: { display: true, position: "top", labels: { usePointStyle: true, pointStyle: 'circle' } },
+                datalabels: { 
+                    display: "auto", 
+                    formatter: function(value,context){
+                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    },
+                    anchor: 'center', 
+                    align: 'center', 
+                    font: { size: 12 }
+                }
             }
         });
     } else if (userOptions.type === 'doughnut') {
@@ -803,7 +852,7 @@ function generateChartOptions(userOptions) {
                         var conlabel = context.chart.data.labels[idx];
                         var sum = context.dataset.data.reduce((a, b) => a + b, 0);
                         var percentage = ((value / sum) * 100).toFixed(2) + "%";
-                        var val = value;
+                        var val = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         var result = "";
                         var conlabelTF = document.getElementById('doughnut-label-info-check').checked;
                         var valueTF = document.getElementById('doughnut-value-info-check').checked;
@@ -839,12 +888,15 @@ function generateChartOptions(userOptions) {
             scales: {
                 r: {
                     pointLabels: {
+                        color:"#000000",
                         display: true,
                         centerPointLabels: true,
                         font: {
                             size: 14,
                         }
-                    }
+                    },
+                    suggestedMin:null,
+                    suggestedMax:null
                 }
             },
             plugins: {
@@ -855,7 +907,7 @@ function generateChartOptions(userOptions) {
                         var conlabel = context.chart.data.labels[idx];
                         var sum = context.dataset.data.reduce((a, b) => a + b, 0);
                         var percentage = ((value / sum) * 100).toFixed(2) + "%";
-                        var val = value;
+                        var val = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         var result = "";
                         var conlabelTF = document.getElementById('polarArea-label-info-check').checked;
                         var valueTF = document.getElementById('polarArea-value-info-check').checked;
@@ -897,6 +949,7 @@ function generateChartOptions(userOptions) {
                         color: '#999'
                     },
                     pointLabels: {
+                        color:"#000000",
                         display: true,
                         font: {
                             size: 14,
@@ -914,7 +967,7 @@ function generateChartOptions(userOptions) {
                         var conlabel = context.chart.data.labels[idx];
                         var sum = context.dataset.data.reduce((a, b) => a + b, 0);
                         var percentage = ((value / sum) * 100).toFixed(2) + "%";
-                        var val = value;
+                        var val = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         var result = "";
                         var conlabelTF = document.getElementById('radar-label-info-check').checked;
                         var valueTF = document.getElementById('radar-value-info-check').checked;
@@ -945,6 +998,26 @@ function generateChartOptions(userOptions) {
     // 사용자 옵션을 병합
     const mergedOptions = deepMerge(trackedOptions, userOptions);
 
+    // 범례 위치에 따른 padding 설정
+    const legendPosition = mergedOptions.plugins.legend.position;
+    switch (legendPosition) {
+        case 'top':
+            mergedOptions.layout.padding = { top: 5, bottom: 10, left: 20, right: 20 };
+            break;
+        case 'bottom':
+            mergedOptions.layout.padding = { top: 35, bottom: 10, left: 20, right: 20 };
+            break;
+        case 'left':
+            mergedOptions.layout.padding = { top: 35, bottom: 10, left: 10, right: 20 };
+            break;
+        case 'right':
+            mergedOptions.layout.padding = { top: 35, bottom: 10, left: 20, right: 10 };
+            break;
+        default:
+            mergedOptions.layout.padding = { top: 10, bottom: 10, left: 10, right: 10 };
+            break;
+    }
+
     // 옵션 저장하기
     jsChartOptions = JSON.stringify(trackedOptions);
     //console.log("Tracked options:", jsChartOptions);
@@ -954,8 +1027,6 @@ function generateChartOptions(userOptions) {
 // 차트 생성 또는 업데이트
 function updateOrCreateChart({ labels, datasets, finalOptions }) {
     //console.log(datasets);
-    console.log(jsChartDataSets);
-    console.log(jsChartOptions);
     const ctx = document.getElementById('chartPreview').getContext('2d');
     const chartType = getSelectedChartType();
     const plugin = {
@@ -977,11 +1048,12 @@ function updateOrCreateChart({ labels, datasets, finalOptions }) {
                 originalFit.bind(chart.legend)();
                 if (this.options.position === 'top') {
                     this.height += 15; 
+                }else if (this.options.position === 'bottom') {
+                    this.height += 0; 
                 }
             };
         }
     };
-
     // 이전 차트가 존재하는 경우
     if (window.prevChart) {
         // 이전 차트의 타입이 현재 선택된 차트와 같은지 확인.
@@ -1020,7 +1092,7 @@ function createChart(ctx, type, labels, datasets, options, plugin, customLegendS
 function createTable() {
     const tableElement = document.getElementById('tableOption');
     applyTableStyles(tableElement);
-
+    
     // 표를 생성합니다.
     const tableWrap = document.querySelector('.tablePreviewWrap');
     const table = document.createElement('table');
@@ -1111,6 +1183,7 @@ function updateChart(chart, type, labels, datasets, options) {
     chart.options = options;
     chart.update();
 }
+
 // 팝업 창 크기 설정 함수
 function setPopupSize(element, width, height) {
     element.style.width = width + "px";
@@ -1162,7 +1235,6 @@ function showPopupChart() {
     // 팝업창 보이기
     popChart.style.display = 'block';
 }
-
 // tablePreview option
 document.querySelectorAll('.tableChartWrap .dataSets_option input , .tableChartWrap .dataSets_option select').forEach(function(input) {
     input.addEventListener('change', handleInputValueUpdate);
@@ -1179,6 +1251,7 @@ document.querySelector('.popChartWrap .closeBtn').addEventListener('click', func
 });
 
 document.querySelector('.optionSave').addEventListener('click', function() {
+    
     const errorInfo = document.querySelector('.errorInfo');
     if(jsChartType == "table"){
         if(jsTableDataSets){
@@ -1224,10 +1297,9 @@ document.querySelector('.optionSave').addEventListener('click', function() {
             //console.log(jsChartOptions);
         }
     }
-    
     //console.log(jsChartType);
-    console.log(jsChartDataSets);
-    console.log(jsChartOptions);
+    //console.log(jsChartDataSets);
+    //console.log(jsChartOptions);
     //console.log(jsChartDataSetsLength);
 });
 
@@ -1244,11 +1316,11 @@ document.querySelector('.resultBtn').addEventListener('click', function() {
     var p_width = getValueWithUnit('.puWInput', 'px', '800');
     if (contentValue == "chart") {
         if(jsChartType == 'table'){
-            var p_height = getValueWithUnit('.puHInput', 'px', '400');
+            var p_height = (Number(document.querySelector('.puWInput').value / 2) + 35) + "px";
         }else if(jsChartType == 'bar' || jsChartType == 'line'){
-            var p_height = document.querySelector('.puWInput').value / 2 + "px";
+            var p_height = (Number(document.querySelector('.puWInput').value / 2) + 35) + "px";
         }else{
-            var p_height = p_width;
+            var p_height = (Number(document.querySelector('.puWInput').value) + 35) + "px";
         }
     }else{
         var p_height = getValueWithUnit('.puHInput', 'px', '400');
@@ -1279,7 +1351,6 @@ document.querySelector('.resultBtn').addEventListener('click', function() {
     var t_td_font = getValueWithUnit('.table-td-fontSize', 'px', '14');
     var t_td_align = getValue('.table-td-align','left');
     var t_td_padding = getValue('.table-td-padding','10px 10px 10px 10px');
-
     var modal = document.querySelector('#modal-result');
     modal.setAttribute('style', 'padding-right:16px');
     document.body.classList.add('modal-open');
@@ -1428,13 +1499,8 @@ function generateCSS(p_width, p_height, p_top, p_left, b_top, b_left, b_color, b
     _css += '/* 팝업 CSS */\n';
     _css += '.popup{width: var(--popup-width);height:var(--popup-height);box-sizing: border-box;bottom: auto;position: fixed;  top:var(--popup-position-top); left: var(--popup-position-left); z-index:1;background:var(--popup-bg-color);box-shadow: 2px 1px 4px 2px rgba(0,0,0,0.5); overflow: hidden; border-radius: 10px;display:none;}\n';
     _css += '.popup p{margin:0;}\n';
-    if (contentValue == "chart") {
-        _css += '.popup .titleWrap{position: absolute;width: 100%; background: var(--title-bg-color); padding: 0 45px 0 20px;cursor:move;box-sizing:border-box;}\n';
-        _css += '.popup .titleWrap .title{font-size: 15px; line-height: 35px; font-weight: 600; color:var(--title-txt-color); }\n';
-    }else{
-        _css += '.popup .titleWrap{position: relative; background: var(--title-bg-color); padding: 0 45px 0 20px;cursor:move;}\n';
-        _css += '.popup .titleWrap .title{font-size: 15px; line-height: 35px; font-weight: 600; color:var(--title-txt-color); }\n';
-    }
+    _css += '.popup .titleWrap{position: relative; background: var(--title-bg-color); padding: 0 45px 0 20px;cursor:move;}\n';
+    _css += '.popup .titleWrap .title{font-size: 15px; line-height: 35px; font-weight: 600; color:var(--title-txt-color); }\n';
     _css += '.popup .closeBtn{display: block; position: absolute; top: 0; right: 0; width: 35px; height: 35px; background: rgba(0,0,0,.5); border:0; cursor: pointer;}\n';
     _css += '.popup .closeBtn span{display: block; width: 100%; height: 100%; font-size: 0; position: relative; transform: rotate(45deg);}\n';
     _css += '.popup .closeBtn span:before{content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; margin: auto; width: 18px; height: 2px; background: #fff; }\n';
@@ -1464,9 +1530,9 @@ function generateCSS(p_width, p_height, p_top, p_left, b_top, b_left, b_color, b
         _css += '.filterWrap::-webkit-scrollbar-corner{background:#dee2e6;}\n';
         _css += '.filterWrap::-webkit-resizer{background:#dee2e6;border-radius:5px;}\n';
     } else if (contentValue == "chart") {
-        _css += '.popChartWrap{width:100%; height:100%; padding:10px; box-sizing:border-box;}\n';
+        _css += '.popChartWrap{width:100%; height: calc(100% - 35px);}\n';
         if(jsChartType == 'table'){
-            _css += '.popChartWrap .jsTableWrap{width: 100%;height: calc(100% - 35px);margin-top: 35px; padding:5px;overflow:auto;}\n';
+            _css += '.popChartWrap .jsTableWrap{width: 100%;height:100%;padding:10px; box-sizing:border-box;overflow:auto;}\n';
             _css += '.popChartWrap .jsTableWrap table{width: 100%;table-layout: fixed; border-collapse:collapse;border-spacing:0;border-left: 1px solid var(--tableChart-border-color);border-top: 1px solid var(--tableChart-border-color);box-sizing: border-box;}\n';
             _css += '.popChartWrap .jsTableWrap table th,.popChartWrap .jsTableWrap table td{border-collapse: collapse;	border-right: 1px solid var(--tableChart-border-color);border-bottom: 1px solid var(--tableChart-border-color);display: table-cell;vertical-align: middle;line-height: 1.5em;}\n';
             _css += '.popChartWrap .jsTableWrap table th{color: var(--tableChart-th-color);background-color: var(--tableChart-th-bg);font-size: var(--tableChart-th-fontSize);font-weight: 500;text-align: var(--tableChart-th-align);padding:var(--tableChart-th-padding);}\n';
@@ -1593,6 +1659,16 @@ function generateJS(b_title, btnArea, popSize, popDrag, c_id) {
                 _js +='    });\n';
                 _js +='    popupOptions.plugins.datalabels = newDatalabelsOptions;\n';
                 _js +='}\n';
+            }else{
+                _js +='function updateDatalabelsOptions() {\n';
+                _js +='    const existingDatalabelsOptions = popupOptions.plugins.datalabels || {};\n';
+                _js +='    const newDatalabelsOptions = Object.assign({}, existingDatalabelsOptions, {\n';
+                _js +='        formatter: function (value, context) {\n';
+                _js +='            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");\n';
+                _js +='        }\n';
+                _js +='    });\n';
+                _js +='    popupOptions.plugins.datalabels = newDatalabelsOptions;\n';
+                _js +='}\n';
             }
             _js +='function createOrUpdateChart(labels, datasets) {\n';
             _js +='    var ctx = document.getElementById("popupChart").getContext("2d");\n';
@@ -1603,9 +1679,7 @@ function generateJS(b_title, btnArea, popSize, popDrag, c_id) {
             _js +='        });\n';
             _js +='        popupJsChart.update();\n';
             _js +='    } else {\n';
-            if(jsChartType == 'doughnut' || jsChartType == 'polarArea' || jsChartType == 'radar'){
-                _js +='        updateDatalabelsOptions();\n';
-            }
+            _js +='        updateDatalabelsOptions();\n';
             _js +='        popupJsChart = new Chart(ctx, {\n';
             _js +='            type: "' + jsChartType +'",\n';
             _js +='            data: { labels, datasets },\n';
@@ -1866,5 +1940,3 @@ function editerFn(){
             console.error(error);
         });
 }
-
-

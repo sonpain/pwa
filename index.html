@@ -263,7 +263,7 @@
                             <div class="accordion shadow-soft rounded" id="accordionExample1">
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
-                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="h6 mb-0 font-weight-bold">CATEGORY</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-1">
@@ -278,7 +278,7 @@
                                 </div>
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="h6 mb-0 font-weight-bold">VALUES</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-2">
@@ -298,7 +298,7 @@
                                                 <div class="dataSets_option" style="display: none;">
                                                     <div class="d-flex border-light shadow-soft rounded">
                                                         <div class="form-group col-free">
-                                                            <label for="bar-categoryName" class="formLabel">카테고리</label>
+                                                            <label for="bar-categoryName" class="formLabel">값 이름</label>
                                                             <input type="text" id="bar-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
                                                         </div>
                                                         <div class="form-group col-free square">
@@ -349,6 +349,10 @@
                                                             <label for="bar-common-font-size" class="formLabel">축 글꼴 크기</label>
                                                             <input type="text" id="bar-common-font-size" class="form-control common-font-size" name="common-font-size" placeholder="글꼴 크기 입력" value="12">
                                                             <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="bar-common-font-color" class="formLabel">축 글꼴 색</label>
+                                                            <input type="text" id="bar-common-font-color" class="form-control common-font-color coloris instance2" name="common-font-color" placeholder="글꼴 색 입력" value="#000000">
                                                         </div>
                                                         <div class="form-group col-free square">
                                                             <label for="bar-common-bg-color" class="formLabel">화면 배경색</label>
@@ -485,7 +489,7 @@
                             <div class="accordion shadow-soft rounded" id="accordionExample1">
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
-                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="h6 mb-0 font-weight-bold">CATEGORY</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-1">
@@ -500,7 +504,7 @@
                                 </div>
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="h6 mb-0 font-weight-bold">VALUES</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-2">
@@ -520,7 +524,7 @@
                                                 <div class="dataSets_option" style="display: none;">
                                                     <div class="d-flex border-light shadow-soft rounded">
                                                         <div class="form-group col-free">
-                                                            <label for="line-categoryName" class="formLabel">카테고리</label>
+                                                            <label for="line-categoryName" class="formLabel">값 이름</label>
                                                             <input type="text" id="line-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
                                                         </div>
                                                         <div class="form-group col-free square">
@@ -592,6 +596,10 @@
                                                             <label for="line-common-font-size" class="formLabel">축 글꼴 크기</label>
                                                             <input type="text" id="line-common-font-size" class="form-control common-font-size" name="common-font-size" placeholder="글꼴 크기 입력" value="12">
                                                             <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="line-common-font-color" class="formLabel">축 글꼴 색</label>
+                                                            <input type="text" id="line-common-font-color" class="form-control common-font-color coloris instance2" name="common-font-color" placeholder="글꼴 색 입력" value="#000000">
                                                         </div>
                                                         <div class="form-group col-free square">
                                                             <label for="line-common-bg-color" class="formLabel">화면 배경색</label>
@@ -728,7 +736,7 @@
                             <div class="accordion shadow-soft rounded" id="accordionExample1">
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
-                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="h6 mb-0 font-weight-bold">CATEGORY</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-1">
@@ -743,7 +751,7 @@
                                 </div>
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="h6 mb-0 font-weight-bold">VALUES</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-2">
@@ -763,7 +771,7 @@
                                                 <div class="dataSets_option" style="display: none;">
                                                     <div class="d-flex border-light shadow-soft rounded">
                                                         <div class="form-group col-free">
-                                                            <label for="doughnut-categoryName" class="formLabel">카테고리</label>
+                                                            <label for="doughnut-categoryName" class="formLabel">값 이름</label>
                                                             <input type="text" id="doughnut-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
                                                         </div>
                                                         <div class="form-group col-free">
@@ -979,7 +987,7 @@
                             <div class="accordion shadow-soft rounded" id="accordionExample1">
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
-                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="h6 mb-0 font-weight-bold">CATEGORY</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-1">
@@ -994,7 +1002,7 @@
                                 </div>
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="h6 mb-0 font-weight-bold">VALUES</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-2">
@@ -1014,7 +1022,7 @@
                                                 <div class="dataSets_option" style="display: none;">
                                                     <div class="d-flex border-light shadow-soft rounded">
                                                         <div class="form-group col-free">
-                                                            <label for="polarArea-categoryName" class="formLabel">카테고리</label>
+                                                            <label for="polarArea-categoryName" class="formLabel">값 이름</label>
                                                             <input type="text" id="polarArea-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
                                                         </div>
                                                         <div class="form-group col-free">
@@ -1104,6 +1112,18 @@
                                                             <span class="unit">px</span>
                                                         </div>
                                                         <div class="form-group col-free square">
+                                                            <label for="polarArea-pointLabels-font-color" class="formLabel">축 글꼴 색</label>
+                                                            <input type="text" id="polarArea-pointLabels-font-color" class="form-control polarArea-pointLabels-font-color coloris instance2" name="common-font-color" placeholder="글꼴 색 입력" value="#000000">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-suggested-min" class="formLabel">축 범위 최소값</label>
+                                                            <input type="text" id="polarArea-suggested-min" class="form-control polarArea-suggested-min" name="polarArea-suggested-min" data-option-name="scales.r.suggestedMin" data-type="number" placeholder="축 범위 최소값">
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-suggested-max" class="formLabel">축 범위 최대값</label>
+                                                            <input type="text" id="polarArea-suggested-max" class="form-control polarArea-suggested-max" name="polarArea-suggested-max" data-option-name="scales.r.suggestedMax" data-type="number" placeholder="축 범위 최대값">
+                                                        </div>
+                                                        <div class="form-group col-free square">
                                                             <label for="polarArea-common-bg-color" class="formLabel">화면 배경색</label>
                                                             <input type="text" id="polarArea-common-bg-color" class="form-control common-bg-color coloris instance2" name="common-bg-color" value="#ffffff" data-option-name="plugins.customCanvasBackgroundColor.color" data-type="string" placeholder="화면 배경색 입력">
                                                         </div>
@@ -1152,6 +1172,13 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                        <div class="form-group col-free">
+                                                            <label for="polarArea-range-label-check" class="formLabel">범위 레이블 표시</label>
+                                                            <select name="polarArea-range-label-check" id="polarArea-range-label-check" data-option-name="scales.r.ticks.display" data-type="boolean" class="polarArea-range-label-check custom-select">
+                                                                <option value="true" selected>true</option>
+                                                                <option value="false">false</option>
+                                                            </select>
                                                         </div>
                                                         <div class="form-group col-free">
                                                             <label for="polarArea-label-position" class="formLabel">레이블 위치</label>
@@ -1244,7 +1271,7 @@
                             <div class="accordion shadow-soft rounded" id="accordionExample1">
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header">
-                                        <span class="h6 mb-0 font-weight-bold">LABELS</span>
+                                        <span class="h6 mb-0 font-weight-bold">CATEGORY</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-1">
@@ -1259,7 +1286,7 @@
                                 </div>
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="h6 mb-0 font-weight-bold">VALUES</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-2">
@@ -1279,7 +1306,7 @@
                                                 <div class="dataSets_option" style="display: none;">
                                                     <div class="d-flex border-light shadow-soft rounded">
                                                         <div class="form-group col-free">
-                                                            <label for="radar-categoryName" class="formLabel">카테고리</label>
+                                                            <label for="radar-categoryName" class="formLabel">값 이름</label>
                                                             <input type="text" id="radar-categoryName" class="form-control categoryName" name="category-name" data-option-name="label" data-type="string" placeholder="카테고리이름">
                                                         </div>
                                                         <div class="form-group col-free square">
@@ -1355,6 +1382,10 @@
                                                             <label for="radar-pointLabels-font-size" class="formLabel">축 글꼴 크기</label>
                                                             <input type="text" id="radar-pointLabels-font-size" class="form-control radar-pointLabels-font-size" name="radar-pointLabels-font-size" placeholder="글꼴 크기 입력" value="12">
                                                             <span class="unit">px</span>
+                                                        </div>
+                                                        <div class="form-group col-free square">
+                                                            <label for="radar-pointLabels-font-color" class="formLabel">축 글꼴 색</label>
+                                                            <input type="text" id="radar-pointLabels-font-color" class="form-control radar-pointLabels-font-color coloris instance2" name="common-font-color" placeholder="글꼴 색 입력" value="#000000">
                                                         </div>
                                                         <div class="form-group col-free">
                                                             <label for="radar-suggested-min" class="formLabel">축 범위 최소값</label>
@@ -1515,7 +1546,7 @@
                             <div class="accordion shadow-soft rounded" id="accordionExample1">
                                 <div class="card card-sm card-body bg-primary border-light mb-0">
                                     <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-                                        <span class="h6 mb-0 font-weight-bold">DATASETS</span>
+                                        <span class="h6 mb-0 font-weight-bold">VALUES</span>
                                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve"><path d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/></svg></span>
                                     </a>
                                     <div class="collapse" id="panel-2">
